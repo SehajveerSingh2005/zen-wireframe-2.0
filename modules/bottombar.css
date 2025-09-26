@@ -53,13 +53,13 @@
 
 
 /* bottombar background transparent for expanded urlbar */
-#urlbar-background,
+.urlbar-background,
 #urlbar-container {
   background-color: var(--na-color-zero) !important;
 }
 
 #urlbar[breakout-extend] :root:has(.urlbar-page-action[open]) #urlbar-background,
-#urlbar[breakout-extend] #urlbar-background,
+#urlbar[breakout-extend] .urlbar-background,
 #urlbar[breakout-extend] #urlbar-container {
   background-color: var(--zen-primary-color) !important;
   border: 2px solid var(--na-color-border) !important;

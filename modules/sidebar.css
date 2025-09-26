@@ -6,6 +6,20 @@
   border-radius: var(--na-user-border-radius) !important;
 }
 
+#titlebar{
+  border-radius: var(--na-user-border-radius) !important;
+}
+
+#zen-toolbar-background {
+  border-radius: var(--na-user-border-radius) !important;
+}
+
+#zen-toolbar-background{
+  &::before, &::after{
+    border-radius: var(--na-user-border-radius) !important;
+  }
+}
+
 /* expanded docked sidebar LEFT side mode */
 :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
   margin-left: 16px !important;

@@ -65,11 +65,10 @@ body > hbox {
 
 /* Ensure all browser elements have squared corners */
 :root #browser,
-:root #browser *:not(#zen-toolbar-background, #titlebar),
-:root body,
-:root body *{
+:root body * {
   border-radius: 0 !important;
 }
+
 
 #zen-browser-background {
   border-radius: var(--na-window-border-radius) !important;

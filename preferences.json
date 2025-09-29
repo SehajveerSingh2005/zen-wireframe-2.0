@@ -57,6 +57,26 @@
     "default": false
   },
   {
+    "type": "dropdown",
+    "property": "wireframe.macos.controls.radius",
+    "label": "Change macos window control radius",
+    "default": "square",
+    "options": [
+      {
+        "value": 0,
+        "label": "Square"
+      },
+      {
+        "value": 1,
+        "label": "Squircle"
+      },
+      {
+        "value": 2,
+        "label": "Circle"
+      }
+    ]
+  },
+  {
     "type": "separator"
   },
   {

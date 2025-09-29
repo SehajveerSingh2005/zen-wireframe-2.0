@@ -66,7 +66,7 @@ body > hbox {
 /* Ensure all browser elements have squared corners */
 :root #browser,
 :root body * {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 
@@ -177,7 +177,7 @@ body > hbox {
   }
 }
 
-/* Webview Border Radius Pref */
+/* === Webview Border Radius Pref === */
 @media (-moz-pref("wireframe.webview.border_radius", 0)) {
   :root {
     --na-user-border-radius: 0px;
@@ -214,7 +214,7 @@ body > hbox {
   }
 }
 
-/* Window border radius pref */
+/* === Window border radius pref === */
 @media (-moz-pref("wireframe.window.border_radius", 0)) {
   :root {
     --na-window-border-radius: 0px;

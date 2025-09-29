@@ -1,0 +1,95 @@
+/* Credits to Ferrocene */
+
+@media (-moz-pref("wireframe.font", "SF-Pro")) {
+    :root {
+        --wireframe-font: "SF-Pro";
+    }
+}
+
+/*@media (-moz-pref("wireframe.font", "SF-Symbols")) {
+    :root {
+        --wireframe-font: "SF-Symbols";
+    }
+}*/
+
+/*@media (-moz-pref("wireframe.font", "Nunito")) {
+    :root {
+        --wireframe-font: "Nunito";
+    }
+}*/
+
+/*@media (-moz-pref("wireframe.font", "Suse")) {
+    :root {
+        --wireframe-font: "Suse";
+    }
+}*/
+
+/*@media (-moz-pref("wireframe.font", "Roboto")) {
+    :root {
+        --wireframe-font: "Roboto";
+    }
+}*/
+
+@media (-moz-pref("wireframe.font", "Bricolage")) {
+    :root {
+        --wireframe-font: "Bricolage";
+    }
+}
+
+@media (-moz-pref("wireframe.font", "GeistMono")) {
+    :root {
+        --wireframe-font: "GeistMono";
+    }
+}
+
+@font-face {
+    font-family: "SF-Pro";
+    src: url("../fonts/SF-Pro.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+}
+
+/*@font-face {
+    font-family: "SF-Symbols";
+    src: url("https://github.com/ferrocyante/Arcline/raw/refs/heads/main/arcline/fonts/SF-Symbols.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+}*/
+
+/*@font-face {
+    font-family: "Nunito";
+    src: url("https://github.com/ferrocyante/Arcline/raw/refs/heads/main/arcline/fonts/Nunito-VariableFont_wght.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}*/
+
+/*@font-face {
+    font-family: "Suse";
+    src: url("https://github.com/ferrocyante/Arcline/raw/refs/heads/main/arcline/fonts/SUSE-VariableFont_wght.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}*/
+
+/*@font-face {
+    font-family: "Roboto";
+    src: url("https://github.com/ferrocyante/Arcline/raw/refs/heads/main/arcline/fonts/Roboto-VariableFont_wdth,wght.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}*/
+
+@font-face {
+    font-family: "Bricolage";
+    src: url("../fonts/BricolageGrotesque-Regular.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GeistMono";
+    src: url("../fonts/GeistMono-Regular.ttf");
+    font-weight: var(--wireframe-font_weight) !important;
+    font-style: normal;
+}
+
+* {
+    font-weight: var(--wireframe-font_weight) !important;
+    font-family: var(--wireframe-font);
+}

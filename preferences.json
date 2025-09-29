@@ -350,5 +350,29 @@
         "label": "Circle"
       }
     ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.font",
+    "label": "Font",
+    "value": "string",
+    "defaultValue": "GeistMono",
+    "options": [
+      {
+        "value": "SF-Pro",
+        "label": "SF-Pro"
+      },
+      {
+        "value": "Bricolage",
+        "label": "Bricolage Grotesque"
+      },
+      {
+        "value": "GeistMono",
+        "label": "Geist Mono"
+      }
+    ]
   }
 ]

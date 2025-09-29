@@ -23,7 +23,7 @@
     "size": "18px",
     "margin": "0 0 15px 0"
   },
-  
+
   {
     "type": "text",
     "label": "General Theme Settings",
@@ -414,6 +414,18 @@
       {
         "value": "GeistMono",
         "label": "Geist Mono"
+      },
+      {
+        "value": "JetBrainsMono",
+        "label": "JetBrains Mono"
+      },
+      {
+        "value": "SUSE",
+        "label": "SUSE"
+      },
+      {
+        "value": "SUSEMono",
+        "label": "SUSE Mono"
       }
     ]
   }

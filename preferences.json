@@ -197,7 +197,7 @@
     "property": "zen.theme.essentials-favicon-bg",
     "label": "Disable favicon background for essentials",
     "value": "boolean",
-    "default": false
+    "default": true
   },
   {
     "type": "separator"

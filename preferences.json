@@ -111,6 +111,16 @@
   },
   {
     "type": "checkbox",
+    "property": "zen.theme.essentials-favicon-bg",
+    "label": "Disable favicon background for essentials",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
     "property": "wireframe.audio.indicator.disable",
     "label": "Disable audio indicator on tab",
     "value": "boolean",
@@ -159,6 +169,17 @@
         "label": "Transparent"
       }
     ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "string",
+    "property": "wf-border-color",
+    "processAs": "root",
+    "label": "Change color for window border (currently not working)",
+    "defaultValue": "rgba(255, 0, 0, 1)",
+    "placeholder": "e.g. rgba(255, 0, 0, 1)"
   },
   {
     "type": "separator"

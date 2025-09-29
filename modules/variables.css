@@ -1,9 +1,16 @@
+/* === User defined configs ===*/
+:root {
+  --na-color-border: var(--wf-border-color, light-dark(rgba(0, 0, 0, 1), rgba(209, 207, 192, 1)));
+}
+
 :root {
   --na-border-radius: 0px !important;
   --na-border-radius-small: 0px !important;
   --na-user-border-radius: 16px; /* This will be controlled by the preference */
   --na-window-margin: 12px !important;
   --na-window-border-radius: 0px; /* Pref var for window border radius */
+  --na-tab-border-radius: 0px; /* Pref var for tabs and folders border radius */
+  --na-essen-border-radius: 0px; /* Pref var for essentials border radius */
   --na-anim-duration: 0.3s;
   --na-urlbar-width: 40vw; /* vw: viewport or your browser width, 100vw means 100% browser width */
 }
@@ -15,7 +22,6 @@
     --na-color-bg-second: var(--zen-colors-secondary) !important;
     --na-color-zero: rgba(0, 0, 0, 0); 
     --na-urlbar-bg: light-dark((#00000011, #000000FF),(#f3f0e611, #f3f0e6FF)) !important;
-    --na-color-border: light-dark(rgba(0, 0, 0, 1),rgba(209, 207, 192, 1)) !important;
 }
 
 :root[privatebrowsingmode] {

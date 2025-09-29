@@ -7,8 +7,8 @@
   },
   {
     "type": "text",
-    "label": "Note",
-    "margin": "30px 0 30px 0",
+    "label": "Important Notes",
+    "margin": "30px 0 20px 0",
     "size": "25px"
   },
   {
@@ -23,10 +23,11 @@
     "size": "18px",
     "margin": "0 0 15px 0"
   },
+  
   {
     "type": "text",
-    "label": "Core Theme Settings",
-    "margin": "30px 0 30px 0",
+    "label": "General Theme Settings",
+    "margin": "30px 0 20px 0",
     "size": "25px"
   },
   {
@@ -44,10 +45,54 @@
   },
   {
     "type": "checkbox",
+    "property": "wireframe.blank.content",
+    "label": "Remove logo from about:blank",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.blank.theme",
+    "label": "Change color scheme for about:blank",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "Dark Tint"
+      },
+      {
+        "value": 1,
+        "label": "Light Tint"
+      },
+      {
+        "value": 2,
+        "label": "Transparent"
+      }
+    ]
+  },
+
+  {
+    "type": "text",
+    "label": "Window Controls",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
     "property": "wireframe.macos.controls",
     "label": "Disable macOS style window controls",
     "value": "boolean",
     "default": false
+  },
+  {
+    "type": "separator"
   },
   {
     "type": "checkbox",
@@ -55,6 +100,9 @@
     "label": "Reverse window controls",
     "value": "boolean",
     "default": false
+  },
+  {
+    "type": "separator"
   },
   {
     "type": "dropdown",
@@ -75,6 +123,23 @@
         "label": "Circle"
       }
     ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "zen.view.experimental-force-window-controls-left",
+    "label": "Force window controls to the left (for macOS style controls only)",
+    "value": "boolean",
+    "default": true
+  },
+
+  {
+    "type": "text",
+    "label": "Toolbar & Navigation",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
   },
   {
     "type": "separator"
@@ -111,6 +176,23 @@
   },
   {
     "type": "checkbox",
+    "property": "wireframe.compact.siderbar.transparent",
+    "label": "Make sidebar transparent in compact mode",
+    "value": "boolean",
+    "default": false
+  },
+
+  {
+    "type": "text",
+    "label": "Visual Elements",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
     "property": "zen.theme.essentials-favicon-bg",
     "label": "Disable favicon background for essentials",
     "value": "boolean",
@@ -130,50 +212,6 @@
     "type": "separator"
   },
   {
-    "type": "checkbox",
-    "property": "wireframe.compact.siderbar.transparent",
-    "label": "Make sidebar transparent in compact mode",
-    "value": "boolean",
-    "default": false
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "checkbox",
-    "property": "zen.view.experimental-force-window-controls-left",
-    "label": "Force window controls to the left (for macOS style controls only)",
-    "value": "boolean",
-    "default": true
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "dropdown",
-    "property": "wireframe.blank.theme",
-    "label": "Change color scheme for about:blank",
-    "value": "number",
-    "default": 0,
-    "options": [
-      {
-        "value": 0,
-        "label": "Dark Tint"
-      },
-      {
-        "value": 1,
-        "label": "Light Tint"
-      },
-      {
-        "value": 2,
-        "label": "Transparent"
-      }
-    ]
-  },
-  {
-    "type": "separator"
-  },
-  {
     "type": "string",
     "property": "wf-border-color",
     "processAs": "root",
@@ -181,15 +219,12 @@
     "defaultValue": "rgba(255, 0, 0, 1)",
     "placeholder": "e.g. rgba(255, 0, 0, 1)"
   },
+
   {
-    "type": "separator"
-  },
-  {
-    "type": "checkbox",
-    "property": "wireframe.blank.content",
-    "label": "Remove logo from about:blank",
-    "value": "boolean",
-    "default": false
+    "type": "text",
+    "label": "Border Radius Controls",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
   },
   {
     "type": "separator"
@@ -350,6 +385,13 @@
         "label": "Circle"
       }
     ]
+  },
+
+  {
+    "type": "text",
+    "label": "Typography",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
   },
   {
     "type": "separator"

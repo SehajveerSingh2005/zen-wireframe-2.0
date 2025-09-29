@@ -133,9 +133,9 @@
       }
     }
 
-    /* auto hide top sidebar toolbar except menu button */
+    /* auto hide top sidebar toolbar ALONG WITH menu button */
   @media (-moz-pref("wireframe.toolbar.hide")){
-    #zen-sidebar-top-buttons>#zen-sidebar-top-buttons-customization-target>*:nth-child(n+2) {
+    #zen-sidebar-top-buttons>#zen-sidebar-top-buttons-customization-target>* {
       opacity: 0 !important;
       transition: opacity var(--na-anim-duration) normal !important;
     }
@@ -403,7 +403,8 @@
   }
 }
 
-/* sidebar content */
+/* === sidebar content === */
+
 #titlebar {
   /* background: var(--na-color-bg) !important; */
 /*   padding-inline: 0px !important; */
@@ -435,6 +436,7 @@
 /* focused tab */
 .tabbrowser-tab[selected]:not([zen-essential]) label {
   color: var(--na-color-bg) !important;
+  border-radius: var(--na-tab-border-radius) !important;
 }
 
 /* invert selected tab icon color */
@@ -444,29 +446,74 @@
   filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
 }
 
+/* hover border radius change for close button */
+@media not (forced-colors) {
+  .close-icon:hover {
+    background-color: color-mix(in srgb, currentColor 10%, transparent);
+    border-radius: var(--na-tab-border-radius) !important;
+  }
+}
+.close-icon {
+  &:hover {
+    outline-color: var(--toolbarbutton-hover-outline-color);
+  }
+}
+
 .tab-background { border-radius: var(--na-user-border-radius) !important; }
+
+.zen-essentials-container > .tabbrowser-tab, #zen-welcome-initial-essentials-browser-sidebar-essentials .tabbrowser-tab {
+  @media -moz-pref("zen.theme.essentials-favicon-bg") {
+    &[visuallyselected] > .tab-stack > .tab-background {
+      &::after {
+        content: '';
+        inset: -50%;
+        filter: blur(20px);
+        position: absolute;
+        background-size: contain;
+        background-clip: padding-box;
+        background-image: var(--zen-essential-tab-icon);
+        z-index: -1;
+        background-position: center;
+      }
+    }
+  }
+}
 
 /* selected tab background */
 .tabbrowser-tab[selected]:not([zen-essential])>stack>vbox {
   background: var(--na-color-text) !important;
 }
 
-.tabbrowser-tab .tab-background::before{
+.tabbrowser-tab .tab-background:not([zen-essential])::before{
   background: rgba(0,0,0,0.2) !important;
   margin: 0 !important;
-  border-radius: 0 !important;
+  border-radius: var(--na-tab-border-radius) !important;
 }
 
 /* unfocused tabs */
-.tabbrowser-tab {
+.tabbrowser-tab:not([zen-essential]) {
   color: var(--na-color-text) !important;
+  border-radius: var(--na-tab-border-radius) !important;
 }
 
-/* tabs padding */
-/* .tab-content {
-  padding-left: 7px !important;
-  padding-right: 7px !important;
-} */
+/* Border radius of tabs */
+.tabbrowser-tab .tab-background:not([zen-essential]){
+  border-radius: var(--na-tab-border-radius) !important;
+}
+
+/* Border radius for folder */
+zen-folder {
+  & > .tab-group-label-container {
+    &::before {
+      border-radius: var(--na-tab-border-radius) !important;;
+    }
+  }
+}
+
+/* Border radius of essentials */
+.tabbrowser-tab:has([zen-essential]) .tab-background{
+  border-radius: var(--na-essen-border-radius) !important;
+}
 
 /* workspace hover */
 :root[zen-sidebar-expanded="true"] #zen-current-workspace-indicator:hover::before {
@@ -519,9 +566,95 @@
   color: var(--zen-primary-color) !important;
 }
 
-/* Pref for audio-indicator */
-@media (-moz-pref("wireframe.audio.indicator.disable")){
-  .tab-audio-button {
-    display: none !important;
+/* Pref for tab and folder border radius */
+@media (-moz-pref("wireframe.tab.border_radius",0)){
+  :root{
+    --na-tab-border-radius: 0px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",4)){
+  :root{
+    --na-tab-border-radius: 4px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",8)){
+  :root{
+    --na-tab-border-radius: 8px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",12)){
+  :root{
+    --na-tab-border-radius: 12px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",16)){
+  :root{
+    --na-tab-border-radius: 16px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",20)){
+  :root{
+    --na-tab-border-radius: 20px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.tab.border_radius",24)){
+  :root{
+    --na-tab-border-radius: 24px !important;
+  }
+}
+
+/* Pref for essentials border radius */
+
+@media (-moz-pref("wireframe.essentials.border_radius",0)){
+  :root{
+    --na-essen-border-radius: 0px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",4)){
+  :root{
+    --na-essen-border-radius: 4px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",8)){
+  :root{
+    --na-essen-border-radius: 8px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",12)){
+  :root{
+    --na-essen-border-radius: 12px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",16)){
+  :root{
+    --na-essen-border-radius: 16px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",20)){
+  :root{
+    --na-essen-border-radius: 20px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",24)){
+  :root{
+    --na-essen-border-radius: 24px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essentials.border_radius",50)){
+  :root{
+    --na-essen-border-radius: 50% !important;
   }
 }

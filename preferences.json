@@ -50,9 +50,6 @@
     "default": false
   },
   {
-    "type": "separator"
-  },
-  {
     "type": "checkbox",
     "property": "wireframe.controls.reverse",
     "label": "Reverse window controls",
@@ -89,7 +86,7 @@
     "value": "boolean",
     "default": true
   },
-    {
+  {
     "type": "separator"
   },
   {
@@ -226,6 +223,90 @@
       {
         "value": 24,
         "label": "24px"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.tab.border_radius",
+    "label": "Border radius for tabs",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "0px"
+      },
+      {
+        "value": 4,
+        "label": "4px"
+      },
+      {
+        "value": 8,
+        "label": "8px"
+      },
+      {
+        "value": 12,
+        "label": "12px"
+      },
+      {
+        "value": 16,
+        "label": "16px"
+      },
+      {
+        "value": 20,
+        "label": "20px"
+      },
+      {
+        "value": 24,
+        "label": "24px"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.essentials.border_radius",
+    "label": "Border radius for essentials",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "0px"
+      },
+      {
+        "value": 4,
+        "label": "4px"
+      },
+      {
+        "value": 8,
+        "label": "8px"
+      },
+      {
+        "value": 12,
+        "label": "12px"
+      },
+      {
+        "value": 16,
+        "label": "16px"
+      },
+      {
+        "value": 20,
+        "label": "20px"
+      },
+      {
+        "value": 24,
+        "label": "24px"
+      },
+      {
+        "value": 50,
+        "label": "Circle"
       }
     ]
   }

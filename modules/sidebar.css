@@ -74,16 +74,16 @@
       left: 0;
       right: 0;
       bottom: -10px;
-      height: 40px; /* ← increases hover hitbox */   
+      height: 40px; /* ← increases hover hitbox */
     }
   }
-  
+
     :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) #zen-appcontent-navbar-wrapper {
       /*padding-block: 10px !important; */
-      margin-block: -5px !important;  
+      margin-block: -5px !important;
       transition: margin-block var(--na-anim-duration) ease !important;
     }
-  
+
   @media (-moz-bool-pref: "wireframe.urlbar.position.top"){
     #zen-appcontent-navbar-wrapper::before {
       content: "";
@@ -91,10 +91,10 @@
       left: 0;
       right: 0;
       top: -10px;
-      height: 40px; /* ← increases hover hitbox */   
+      height: 40px; /* ← increases hover hitbox */
     }
   }
-  
+
       :root:has(#customization-content-container:hover),
       :root:has(toolbarpaletteitem:active),
       :root:has(#zen-appcontent-navbar-container:hover),
@@ -103,9 +103,9 @@
       :root:has(#zen-appcontent-navbar-wrapper:hover) #zen-appcontent-navbar-wrapper {
         margin-block: 0px !important;
       }
-  
+
       :root[zen-sidebar-expanded="true"] {
-   
+
       /* keep it visible if any of these areas are hovered / active */
 /*       :root:has(#customization-content-container:hover),
       :root:has(toolbarpaletteitem:active),
@@ -117,7 +117,7 @@
         opacity: 1 !important;
         transition-delay: 0s !important;
       } */
-        
+
 /*       :root:has(#customization-content-container:hover),
       :root:has(toolbarpaletteitem:active),
       :root:has(#zen-appcontent-navbar-container:hover),
@@ -144,7 +144,7 @@
       opacity: 1 !important;
     }
   }
-  
+
   @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
     #nav-bar {
       order: 1 !important;
@@ -186,43 +186,43 @@
         right: auto !important;
         margin-inline: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show] #urlbar-container:hover {
         margin-left: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar {
         margin-left: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])[zen-has-hover] #urlbar:not(:hover) {
         margin-left: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"])) #urlbar {
         margin-left: 0px !important;
       }
     }
-  
+
     :root[zen-right-side="true"][zen-sidebar-expanded="true"][zen-compact-mode="true"] {
       #urlbar-container:has(#urlbar[open]) {
         left: auto !important;
         right: 0 !important;
         margin-inline: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show] #urlbar-container:hover {
         margin-right: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar {
         margin-right: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])[zen-has-hover] #urlbar:not(:hover) {
         margin-right: 0px !important;
       }
-  
+
       #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"])) #urlbar {
         margin-right: 0px !important;
       }
@@ -279,7 +279,7 @@
   :root[zen-compact-mode="true"] #navigator-toolbox {
     height: calc(100% - 48px) !important;
     align-self: center !important;
-    margin-top: 20px !important;  
+    margin-top: 20px !important;
   }
 }
 
@@ -288,7 +288,7 @@
     :root[zen-compact-mode="true"] #navigator-toolbox {
       height: calc(100% - 48px) !important;
       align-self: center !important;
-      margin-top: 0px !important;  
+      margin-top: 0px !important;
     }
   }
 }
@@ -446,7 +446,7 @@
   filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
 }
 
-/* hover border radius change for close button */
+/* hover border radius change for close button and reset button*/
 @media not (forced-colors) {
   .close-icon:hover {
     background-color: color-mix(in srgb, currentColor 10%, transparent);
@@ -456,6 +456,29 @@
 .close-icon {
   &:hover {
     outline-color: var(--toolbarbutton-hover-outline-color);
+  }
+}
+
+@media not (forced-colors) {
+  .reset-icon:hover {
+    background-color: color-mix(in srgb, currentColor 10%, transparent);
+    border-radius: var(--na-tab-border-radius) !important;
+  }
+}
+.reset-icon {
+  &:hover {
+    outline-color: var(--toolbarbutton-hover-outline-color);
+  }
+}
+
+#navigator-toolbox[zen-sidebar-expanded="true"] {
+  & #TabsToolbar-customization-target {
+    & > :is(toolbaritem, toolbarbutton):not(#search-container):not(#zen-workspaces-button), & #tabbrowser-arrowscrollbox-periphery > toolbarbutton {
+      width: 100% !important;
+      border-radius: var(--na-tab-border-radius) !important;
+      padding-left: var(--toolbarbutton-inner-padding) !important;
+      padding-right: var(--toolbarbutton-inner-padding) !important;
+    }
   }
 }
 

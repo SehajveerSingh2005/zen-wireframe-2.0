@@ -212,15 +212,6 @@
     "type": "separator"
   },
   {
-    "type": "string",
-    "property": "wf-border-color",
-    "processAs": "root",
-    "label": "Change color for window border (currently not working)",
-    "defaultValue": "rgba(255, 0, 0, 1)",
-    "placeholder": "e.g. rgba(255, 0, 0, 1)"
-  },
-
-  {
     "type": "text",
     "label": "Border Radius Controls",
     "margin": "30px 0 20px 0",

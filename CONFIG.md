@@ -15,11 +15,29 @@ This theme implements customizable preferences using Zen Browser's preference sy
 4. `wireframe.urlbar.position.top` - Position URL bar at the top (for multiple and collapsed toolbar only)
 5. `wireframe.macos.controls` - Disable macOS style window controls
 6. `zen.view.experimental-force-window-controls-left` - Force window controls to the left (for macOS style controls only)
-7. `wireframe.blank.theme` - Switch to light mode for about:blank
+7. `wireframe.blank.theme` - Change color scheme for about:blank
+8. `wireframe.blank.content` - Remove logo from about:blank
+9. `wireframe.controls.reverse` - Reverse window controls
+10. `wireframe.toolbar.hide` - Auto hide toolbar buttons (Reveal on hover)
+11. `wireframe.navigation.hide` - Disable navigation buttons
+12. `wireframe.statusbar.disable` - Disable status bar
+13. `wireframe.compact.siderbar.transparent` - Make sidebar transparent in compact mode
+14. `zen.theme.essentials-favicon-bg` - Disable favicon background for essentials
+15. `wireframe.audio.indicator.disable` - Disable audio indicator on tab
 
 ### Dropdown Preferences
 
 1. `wireframe.webview.border-radius` - Border radius for webview (e.g., 0px, 4px, 8px, 12px)
+2. `wireframe.macos.controls.radius` - Change macOS window control radius (square, squircle, circle)
+3. `wireframe.webview.border_radius` - Border radius for webview (0px, 4px, 8px, 12px, 16px, 20px)
+4. `wireframe.window.border_radius` - Border radius for window (0px, 4px, 8px, 12px, 16px, 20px, 24px)
+5. `wireframe.tab.border_radius` - Border radius for tabs (0px, 4px, 8px, 12px, 16px, 20px, 24px)
+6. `wireframe.essentials.border_radius` - Border radius for essentials (0px, 4px, 8px, 12px, 16px, 20px, 24px, circle)
+7. `wireframe.font` - Font selection (SF-Pro, Bricolage, GeistMono, JetBrainsMono, SUSE, SUSEMono)
+
+### String Preferences
+
+1. `wf-border-color` - Change color for window border (currently not working)
 
 ## How Preferences Work
 
@@ -65,3 +83,30 @@ To add new preferences to the theme:
 3. Set sensible default values
 4. Group related preferences logically
 5. Test preferences thoroughly to ensure they work as expected
+
+## New Features in Wireframe 2.0
+
+### Border Radius Controls
+Wireframe 2.0 introduces comprehensive border radius controls for different UI elements:
+- Webview border radius: Control the corner radius of the web content area
+- Window border radius: Adjust the corner radius of the browser window
+- Tab border radius: Customize the corner radius of browser tabs
+- Essentials border radius: Modify the corner radius of essential UI elements like bookmarks and extensions
+
+### Typography Options
+The theme now supports multiple font options with the `wireframe.font` preference:
+- SF-Pro: Apple's system font
+- Bricolage: Bricolage Grotesque font
+- GeistMono: Clean monospace font
+- JetBrainsMono: Developer-focused monospace font
+- SUSE: Clean sans-serif font
+- SUSEMono: Monospace variant of SUSE
+
+### Favicon Background Control
+You can now disable the background for favicons in the essentials toolbar using the `zen.theme.essentials-favicon-bg` preference.
+
+### Window Control Radius
+Enhanced customization options for macOS style window controls with the `wireframe.macos.controls.radius` preference.
+
+### Fullscreen and Maximized Mode Fixes
+Fixed border radius issues when the browser is in fullscreen and maximized modes, ensuring consistent styling across all window states.

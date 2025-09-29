@@ -11,6 +11,10 @@ A minimal, squared-off theme for Zen Browser that focuses on clean lines and eff
 - Clean color scheme
 - Efficient use of space
 - Modular CSS structure for easy customization
+- Customizable border radius for various UI elements
+- Multiple font options available
+- Enhanced window control customization
+- Favicon background control for essentials
 
 ## Installation
 
@@ -45,6 +49,30 @@ To achieve the clean squared-off window borders as shown in the theme screenshot
 
 You can customize the theme by modifying the variables in `modules/variables.css` or by overriding specific styles in the individual module files.
 
+## Border Radius Customization
+
+Wireframe 2.0 introduces extensive border radius customization options. You can adjust the corner radius for different UI elements through the preferences:
+
+- Webview: Control the border radius of the web content area
+- Window: Adjust the border radius of the browser window
+- Tabs: Customize the border radius of browser tabs
+- Essentials: Modify the border radius of essential UI elements like bookmarks and extensions
+
+## Typography Options
+
+The theme now supports multiple font options to customize the look and feel:
+
+- SF-Pro: Apple's system font
+- Bricolage Grotesque: Modern grotesque font
+- Geist Mono: Clean monospace font
+- JetBrains Mono: Developer-focused monospace font
+- SUSE: Clean sans-serif font
+- SUSE Mono: Monospace variant of SUSE
+
+## Favicon Background Control
+
+You can now disable the background for favicons in the essentials toolbar using the `zen.theme.essentials-favicon-bg` preference. This provides a cleaner look for favicons in the toolbar.
+
 ## Preferences
 
 The theme includes several customizable preferences that can be adjusted through Zen Browser's preferences system:
@@ -56,6 +84,21 @@ The theme includes several customizable preferences that can be adjusted through
 - `wireframe.macos.controls` - Disable macOS style window controls
 - `zen.view.experimental-force-window-controls-left` - Force window controls to the left (for macOS style controls only)
 - `wireframe.blank.theme` - Switch to light mode for about:blank
+- `wireframe.blank.content` - Remove logo from about:blank
+- `wireframe.macos.controls.radius` - Change macOS window control radius (square, squircle, circle)
+- `wireframe.controls.reverse` - Reverse window controls
+- `wireframe.toolbar.hide` - Auto hide toolbar buttons (reveal on hover)
+- `wireframe.navigation.hide` - Disable navigation buttons
+- `wireframe.statusbar.disable` - Disable status bar
+- `wireframe.compact.siderbar.transparent` - Make sidebar transparent in compact mode
+- `zen.theme.essentials-favicon-bg` - Disable favicon background for essentials
+- `wireframe.audio.indicator.disable` - Disable audio indicator on tab
+- `wf-border-color` - Change color for window border (currently not working)
+- `wireframe.webview.border_radius` - Border radius for webview (0px, 4px, 8px, 12px, 16px, 20px)
+- `wireframe.window.border_radius` - Border radius for window (0px, 4px, 8px, 12px, 16px, 20px, 24px)
+- `wireframe.tab.border_radius` - Border radius for tabs (0px, 4px, 8px, 12px, 16px, 20px, 24px)
+- `wireframe.essentials.border_radius` - Border radius for essentials (0px, 4px, 8px, 12px, 16px, 20px, 24px, circle)
+- `wireframe.font` - Font selection (SF-Pro, Bricolage, GeistMono, JetBrainsMono, SUSE, SUSEMono)
 
 ## Contributing
 

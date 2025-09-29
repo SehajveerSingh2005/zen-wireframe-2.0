@@ -49,7 +49,7 @@ body > hbox {
 }
 
 /* window border on minimize */
-:root:not([sizemode="maximized"]) #browser {
+:root[sizemode="normal"] #browser {
   border: 2px solid var(--na-color-border) !important;
   border-radius: var(--na-window-border-radius) !important;
   outline: none !important;
@@ -70,7 +70,7 @@ body > hbox {
 }
 
 
-#zen-browser-background {
+:root[sizemode="normal"] #zen-browser-background {
   border-radius: var(--na-window-border-radius) !important;
 }
 

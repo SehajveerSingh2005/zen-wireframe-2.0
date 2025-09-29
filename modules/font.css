@@ -38,41 +38,41 @@
 
 @font-face {
     font-family: "SF-Pro";
-    src: url("../fonts/SF-Pro.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/SF-Pro.ttf");
     font-weight: var(--wireframe-font_weight) !important;
 }
 
 @font-face {
     font-family: "SUSE";
-    src: url("../fonts/SUSE-Regular.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/SUSE-Regular.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }
 
 @font-face {
     font-family: "SUSEMono";
-    src: url("../fonts/SUSEMono-Regular.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/SUSEMono-Regular.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Bricolage";
-    src: url("../fonts/BricolageGrotesque-Regular.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/BricolageGrotesque-Regular.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }
 
 @font-face {
     font-family: "GeistMono";
-    src: url("../fonts/GeistMono-Regular.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/GeistMono-Regular.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }
 
 @font-face {
     font-family: "JetBrainsMono";
-    src: url("../fonts/JetBrainsMono-Regular.ttf");
+    src: url("https://github.com/SehajveerSingh2005/zen-wireframe-2.0/raw/refs/heads/main/fonts/JetBrainsMono-Regular.ttf");
     font-weight: var(--wireframe-font_weight) !important;
     font-style: normal;
 }

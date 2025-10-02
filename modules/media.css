@@ -3,7 +3,7 @@
     backdrop-filter: saturate(1) contrast(0) blur(10px) !important;
     background-color: var(--na-color-bg) !important;
     border-color: var(--na-color-border) !important;
-    border-width: 0.5px !important;
+    border-width: 2px !important;
     border-style: solid !important;
 }
 

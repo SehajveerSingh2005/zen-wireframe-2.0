@@ -5,6 +5,18 @@
     border-color: var(--na-color-border) !important;
     border-width: 2px !important;
     border-style: solid !important;
+    border-radius: 8px !important;
+}
+
+/* Fix overflow issue only */
+#zen-media-info-vbox {
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+#zen-media-info-container {
+    overflow: hidden !important;
+    min-width: 0 !important;
 }
 
 /*Credit: JustAdumbPrson*/

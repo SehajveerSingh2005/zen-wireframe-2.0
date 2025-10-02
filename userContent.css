@@ -1,0 +1,74 @@
+@-moz-document url("about:privatebrowsing") {
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --na-color-text: rgba(54, 20, 192, 1);
+      --na-color-bg: rgba(192, 180, 211, 0.6);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --na-color-text: rgba(192, 180, 211, 1);
+      --na-color-bg: rgba(54, 20, 192, 0.6);
+    }
+  }
+}
+
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+  /* @media (prefers-color-scheme: light) {
+    :root {
+      --na-color-text: rgba(30, 31, 0, 1);
+      --na-color-bg: rgba(239, 233, 217, 0.6);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --na-color-text: rgba(209, 207, 192, 1);
+      --na-color-bg: rgba(30, 30, 31, 0.6);
+    }
+  } */
+
+  @media (-moz-pref("wireframe.blank.theme", 0)) {
+    :root {
+      --na-color-text: rgba(209, 207, 192, 1);
+      --na-color-bg: rgba(30, 30, 31, 0.6);
+    }
+  }
+
+  @media (-moz-pref("wireframe.blank.theme", 1)) {
+    :root {
+      --na-color-text: rgba(30, 31, 0, 1);
+      --na-color-bg: rgba(239, 233, 217, 0.6);
+    }
+  }
+
+  @media (-moz-pref("wireframe.blank.theme", 2)) {
+    :root {
+      --na-color-text: rgba(209, 207, 192, 1);
+      --na-color-bg: rgba(30, 30, 31, 0);
+    }
+  }
+}
+
+@-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
+
+  html, body {
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: url("https://raw.githubusercontent.com/zen-browser/branding/refs/heads/main/Official/Word%20Marks/SVG/zen_logo_icon_white.svg") !important;
+    background-size: 150px !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    filter: invert(1) saturate(5) brightness(0.8) opacity(0.6) !important;
+
+  }
+
+  #root,
+ .container {
+    display: none;
+  }
+}

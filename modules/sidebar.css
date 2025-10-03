@@ -672,6 +672,6 @@ zen-folder {
 
 @media (-moz-pref("wireframe.essentials.border_radius",50)){
   :root{
-    --na-essen-border-radius: 50% !important;
+    --na-essen-border-radius: 100px !important;
   }
 }

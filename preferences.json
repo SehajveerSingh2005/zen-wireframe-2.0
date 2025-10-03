@@ -195,7 +195,7 @@
   },
   {
     "type": "checkbox",
-    "property": "wireframe.nogap.enabled",
+    "property": "wireframe.nogaps.enabled",
     "label": "Enable no gap for single-toolbar",
     "value": "boolean",
     "default": false
@@ -365,7 +365,7 @@
       },
       {
         "value": 50,
-        "label": "Circle"
+        "label": "Round"
       }
     ]
   },

@@ -29,6 +29,19 @@
   }
 }
 
+/* === Border between sidebar and webview for nogaps mod */
+@media (-moz-pref("wireframe.nogaps.enabled")){
+    @media (-moz-pref("wireframe.nogaps.border.enabled")){
+        :root:not([zen-right-side],[zen-compact-mode="true"])[zen-sidebar-expanded="true"] #zen-sidebar-splitter {
+          border-right: 1px solid var(--na-color-border) !important;
+        }
+
+        :root:not([zen-compact-mode="true"])[zen-right-side][zen-sidebar-expanded="true"] #zen-sidebar-splitter {
+          border-left: 1px solid var(--na-color-border) !important;
+        }
+    }
+}
+
   /* expanded docked sidebar RIGHT side mode */
   :root[zen-right-side][zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
     margin-right: 16px !important;

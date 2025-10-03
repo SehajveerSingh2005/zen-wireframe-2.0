@@ -288,3 +288,10 @@ body > hbox {
     }
   }
 }
+
+/* fix for transparent blank page */
+.browserStack {
+  browser {
+    background-color: transparent !important;
+  }
+}

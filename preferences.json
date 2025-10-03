@@ -7,25 +7,6 @@
   },
   {
     "type": "text",
-    "label": "Important Notes",
-    "margin": "30px 0 20px 0",
-    "size": "25px"
-  },
-  {
-    "type": "text",
-    "label": "1.) Disabling animations may improve performance but reduce visual feedback.",
-    "size": "18px",
-    "margin": "0 0 15px 0"
-  },
-  {
-    "type": "text",
-    "label": "2.) Color scheme and window control changes may require a browser restart to take effect.",
-    "size": "18px",
-    "margin": "0 0 15px 0"
-  },
-
-  {
-    "type": "text",
     "label": "General Theme Settings",
     "margin": "30px 0 20px 0",
     "size": "25px"
@@ -262,7 +243,7 @@
     "property": "wireframe.window.border_radius",
     "label": "Border radius for window",
     "value": "number",
-    "default": 0,
+    "default": 8,
     "options": [
       {
         "value": 0,

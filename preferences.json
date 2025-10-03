@@ -204,6 +204,16 @@
     "type": "separator"
   },
   {
+    "type": "checkbox",
+    "property": "wireframe.nogaps.border.enabled",
+    "label": "Show splitter (for no gaps mod)",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
     "type": "text",
     "label": "Border Radius Controls",
     "margin": "30px 0 20px 0",

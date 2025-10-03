@@ -10,14 +10,8 @@
   border-radius: var(--na-user-border-radius) !important;
 }
 
-#zen-toolbar-background {
+.zen-toolbar-background {
   border-radius: var(--na-user-border-radius) !important;
-}
-
-#zen-toolbar-background{
-  &::before, &::after{
-    border-radius: var(--na-user-border-radius) !important;
-  }
 }
 
 /* expanded docked sidebar LEFT side mode */

@@ -256,3 +256,35 @@ body > hbox {
     --na-window-border-radius: 24px;
   }
 }
+
+/* === no gaps === */
+@media (-moz-bool-pref: "zen.view.use-single-toolbar"){
+  @media (-moz-pref("wireframe.nogap.enabled")) {
+    :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      margin: 0 !important;
+      border-radius: var(--na-window-border-radius) !important;
+      border: none !important;
+    }
+    
+    /* sidebar on the RIGHT → kill right corners */
+    :root[zen-right-side="true"]:not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+    
+    /* sidebar on the LEFT → kill left corners */
+    :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+    
+    :root[zen-single-toolbar="true"]:not([customizing]) {
+      & #zen-appcontent-navbar-wrapper {
+        display: none !important;;
+        -moz-window-dragging: drag;
+        min-height: var(--zen-element-separation);
+        height: var(--zen-element-separation);
+      }
+    }
+  }
+}

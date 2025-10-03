@@ -259,8 +259,14 @@ body > hbox {
 
 /* === no gaps === */
 @media (-moz-bool-pref: "zen.view.use-single-toolbar"){
-  @media (-moz-pref("wireframe.nogap.enabled")) {
+  @media (-moz-pref("wireframe.nogaps.enabled")) {
     :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
+      margin: 0 !important;
+      border-radius: var(--na-window-border-radius) !important;
+      border: none !important;
+    }
+    
+    :root:not([zen-right-side="false"]):not([zen-compact-mode="true"]):not([inDOMFullscreen="true"]) #zen-tabbox-wrapper {
       margin: 0 !important;
       border-radius: var(--na-window-border-radius) !important;
       border: none !important;

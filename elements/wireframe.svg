@@ -24,8 +24,8 @@
     </pattern>
   </defs>
   
-  <rect x="0" y="6.34" width="72.03" height="72.03" fill="url(#pattern-light)" />
+  <rect x="0" y="9.34" width="72.03" height="72.03" fill="url(#pattern-light)" />
   <rect x="72.03" y="12.34" width="72.03" height="72.03" fill="url(#pattern-medium)" />
-  <rect x="144.06" y="16.34" width="72.03" height="72.03" fill="url(#pattern-dark)" />
+  <rect x="144.06" y="14.34" width="72.03" height="72.03" fill="url(#pattern-dark)" />
 
 </svg>

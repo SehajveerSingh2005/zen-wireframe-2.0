@@ -1,28 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216.1 96.71" style="color: #D1CFC0;">
-  <title>Three Dithered Squares (Aligned)</title>
-  <desc>Three squares with varied, but aligned, noise density patterns.</desc>
+  <title>Three Dithered Squares (Denser Grid)</title>
+  <desc>Three squares with a consistent large dot size and a denser 4x4 grid for the dark pattern.</desc>
   
   <defs>
-    <pattern id="pattern-light" patternUnits="userSpaceOnUse" width="8" height="8">
-      <circle cx="4" cy="4" r="0.6" fill="currentColor"/>
+    <pattern id="pattern-light" patternUnits="userSpaceOnUse" width="12" height="12">
+      <circle cx="3" cy="3" r="1.5" fill="currentColor"/>
+      <circle cx="9" cy="3" r="1.5" fill="currentColor"/>
+      <circle cx="3" cy="9" r="1.5" fill="currentColor"/>
+      <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
     </pattern>
     
-    <pattern id="pattern-medium" patternUnits="userSpaceOnUse" width="8" height="8">
-      <circle cx="2" cy="2" r="0.6" fill="currentColor"/>
-      <circle cx="6" cy="2" r="0.6" fill="currentColor"/>
-      <circle cx="2" cy="6" r="0.6" fill="currentColor"/>
-      <circle cx="6" cy="6" r="0.6" fill="currentColor"/>
+    <pattern id="pattern-medium" patternUnits="userSpaceOnUse" width="12" height="12">
+      <circle cx="2" cy="2" r="1.5" fill="currentColor"/><circle cx="6" cy="2" r="1.5" fill="currentColor"/><circle cx="10" cy="2" r="1.5" fill="currentColor"/>
+      <circle cx="2" cy="6" r="1.5" fill="currentColor"/><circle cx="6" cy="6" r="1.5" fill="currentColor"/><circle cx="10" cy="6" r="1.5" fill="currentColor"/>
+      <circle cx="2" cy="10" r="1.5" fill="currentColor"/><circle cx="6" cy="10" r="1.5" fill="currentColor"/><circle cx="10" cy="10" r="1.5" fill="currentColor"/>
     </pattern>
     
-    <pattern id="pattern-dark" patternUnits="userSpaceOnUse" width="8" height="8">
-      <circle cx="1" cy="1" r="0.6" fill="currentColor"/><circle cx="3" cy="1" r="0.6" fill="currentColor"/><circle cx="5" cy="1" r="0.6" fill="currentColor"/><circle cx="7" cy="1" r="0.6" fill="currentColor"/>
-      <circle cx="1" cy="3" r="0.6" fill="currentColor"/><circle cx="3" cy="3" r="0.6" fill="currentColor"/><circle cx="5" cy="3" r="0.6" fill="currentColor"/><circle cx="7" cy="3" r="0.6" fill="currentColor"/>
-      <circle cx="1" cy="5" r="0.6" fill="currentColor"/><circle cx="3" cy="5" r="0.6" fill="currentColor"/><circle cx="5" cy="5" r="0.6" fill="currentColor"/><circle cx="7" cy="5" r="0.6" fill="currentColor"/>
-      <circle cx="1" cy="7" r="0.6" fill="currentColor"/><circle cx="3" cy="7" r="0.6" fill="currentColor"/><circle cx="5" cy="7" r="0.6" fill="currentColor"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/>
+    <pattern id="pattern-dark" patternUnits="userSpaceOnUse" width="12" height="12">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor"/><circle cx="4.5" cy="1.5" r="1.5" fill="currentColor"/><circle cx="7.5" cy="1.5" r="1.5" fill="currentColor"/><circle cx="10.5" cy="1.5" r="1.5" fill="currentColor"/>
+      <circle cx="1.5" cy="4.5" r="1.5" fill="currentColor"/><circle cx="4.5" cy="4.5" r="1.5" fill="currentColor"/><circle cx="7.5" cy="4.5" r="1.5" fill="currentColor"/><circle cx="10.5" cy="4.5" r="1.5" fill="currentColor"/>
+      <circle cx="1.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="4.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="10.5" cy="7.5" r="1.5" fill="currentColor"/>
+      <circle cx="1.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="4.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="10.5" cy="10.5" r="1.5" fill="currentColor"/>
     </pattern>
   </defs>
   
-  <rect x="0" y="6" width="72.03" height="72.03" fill="url(#pattern-light)" />
+  <rect x="0" y="6.34" width="72.03" height="72.03" fill="url(#pattern-light)" />
   <rect x="72.03" y="12.34" width="72.03" height="72.03" fill="url(#pattern-medium)" />
   <rect x="144.06" y="16.34" width="72.03" height="72.03" fill="url(#pattern-dark)" />
 

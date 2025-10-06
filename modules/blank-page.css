@@ -116,3 +116,9 @@
         --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/globe.svg");
     }
 }
+
+@media (-moz-pref("wireframe.blank.logo",7)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/e0a1e918c99e87afab60bf6676b266e82ecefb37/elements/smiley.svg");
+    }
+}

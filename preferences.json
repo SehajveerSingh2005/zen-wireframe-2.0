@@ -58,6 +58,10 @@
       {
         "value": 6,
         "label": "Globe"
+      },
+      {
+        "value": 7,
+        "label": "Smiley"
       }
     ]
   },

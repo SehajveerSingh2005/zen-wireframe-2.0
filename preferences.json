@@ -25,11 +25,37 @@
     "type": "separator"
   },
   {
-    "type": "checkbox",
-    "property": "wireframe.blank.content",
-    "label": "Remove logo from about:blank",
-    "value": "boolean",
-    "default": false
+    "type": "dropdown",
+    "property": "wireframe.blank.logo",
+    "label": "Change blank page logo",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "Wireframe"
+      },
+      {
+        "value": 1,
+        "label": "Checks"
+      },
+      {
+        "value": 2,
+        "label": "Starlight"
+      },
+      {
+        "value": 3,
+        "label": "Rings"
+      },
+      {
+        "value": 4,
+        "label": "Waves"
+      },
+      {
+        "value": 5,
+        "label": "Globe"
+      }
+    ]
   },
   {
     "type": "separator"

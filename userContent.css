@@ -1,22 +1,21 @@
 @-moz-document url("about:privatebrowsing") {
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --na-color-text: rgba(54, 20, 192, 1);
-      --na-color-bg: rgba(192, 180, 211, 0.6);
+    @media (prefers-color-scheme: light) {
+        :root {
+            --na-color-text: rgba(54, 20, 192, 1);
+            --na-color-bg: rgba(192, 180, 211, 0.6);
+        }
     }
-  }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --na-color-text: rgba(192, 180, 211, 1);
-      --na-color-bg: rgba(54, 20, 192, 0.6);
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --na-color-text: rgba(192, 180, 211, 1);
+            --na-color-bg: rgba(54, 20, 192, 0.6);
+        }
     }
-  }
 }
 
 @-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
-  /* @media (prefers-color-scheme: light) {
+    /* @media (prefers-color-scheme: light) {
     :root {
       --na-color-text: rgba(30, 31, 0, 1);
       --na-color-bg: rgba(239, 233, 217, 0.6);
@@ -30,86 +29,153 @@
     }
   } */
 
-  @media (-moz-pref("wireframe.blank.theme", 0)) {
-    :root {
-      --na-color-text: rgba(209, 207, 192, 1);
-      --na-color-bg: rgba(30, 30, 31, 0.6);
+    @media (-moz-pref("wireframe.blank.theme", 0)) {
+        :root {
+            --na-color-text: rgba(209, 207, 192, 1);
+            --na-color-bg: rgba(30, 30, 31, 0.6);
+        }
     }
-  }
 
-  @media (-moz-pref("wireframe.blank.theme", 1)) {
-    :root {
-      --na-color-text: rgba(30, 31, 0, 1);
-      --na-color-bg: rgba(239, 233, 217, 0.6);
+    @media (-moz-pref("wireframe.blank.theme", 1)) {
+        :root {
+            --na-color-text: rgba(30, 31, 0, 1);
+            --na-color-bg: rgba(239, 233, 217, 0.6);
+        }
     }
-  }
 
-  @media (-moz-pref("wireframe.blank.theme", 2)) {
-    :root {
-      --na-color-text: rgba(209, 207, 192, 1);
-      --na-color-bg: rgba(30, 30, 31, 0);
+    @media (-moz-pref("wireframe.blank.theme", 2)) {
+        :root {
+            --na-color-text: rgba(209, 207, 192, 1);
+            --na-color-bg: rgba(30, 30, 31, 0);
+        }
     }
-  }
 }
 
-/* @-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
-
-  html, body {
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/0f739998696bcb1a771628fa81c3903beafe253f/elements/checks.svg") no-repeat center center fixed !important;
-    background-size: 150px !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    background-position: center !important;
-  }
-
-  #root,
- .container {
-    display: none;
-  }
-} */
-
+/* new blank page logo cusotmisation using background image and svg */
 @-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
-
   html, body {
     overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
+    background-color: var(--na-color-bg) !important;
   }
 
-  #root,
- .container {
-    display: none;
-  }
-
-  body::before {
-    font-weight: 500;
-    position: absolute;
-    margin: auto;
-    font-size: 250%;
-    color: var(--na-color-text);
-    background-color: var(--na-color-bg);
-    width: 100%;
-    height: 100%;
-    align-content: center;
-    text-align: center;
-    content: '░░▒▒▓▓';
-    /* '░░▒▒▓▓' */
-    visibility: visible;
-    background-image: '';
-    /* url(loading.gif) */
-    background-size: 5em;
+  html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 150px;
+    z-index: 9999; /* make sure it’s visible */
+    transition: filter 0.3s ease;
+    pointer-events: none; /* so it doesn’t block anything */
+  }
+
+  /* dark theme (default) */
+  @media (-moz-pref("wireframe.blank.theme", 0)) {
+    html::before {
+      filter: invert(0);
+    }
+  }
+
+  /* light theme */
+  @media (-moz-pref("wireframe.blank.theme", 1)) {
+    html::before {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+
+  /* transparent/dark theme */
+  @media (-moz-pref("wireframe.blank.theme", 2)) {
+    html::before {
+      filter: invert(0);
+    }
+  }
+
+  #root,
+  .container {
+    display: none !important;
+  }
+  
+  /* === Logo Options === */
+  @media (-moz-pref("wireframe.blank.logo",0)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/bf814f7214b44020f2d2587d705bffdadd02c7f8/elements/wireframe.svg");
+      }
+  }
+  
+  @media (-moz-pref("wireframe.blank.logo",1)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/checks.svg");
+      }
+  }
+  
+  @media (-moz-pref("wireframe.blank.logo",2)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/starlight.svg");
+      }
+  }
+  
+  @media (-moz-pref("wireframe.blank.logo",3)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/rings.svg");
+      }
+  }
+  
+  @media (-moz-pref("wireframe.blank.logo",4)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/waves.svg");
+      }
+  }
+  
+  @media (-moz-pref("wireframe.blank.logo",5)){
+      html::before{
+        background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/globe.svg");
+      }
   }
 }
 
-@media (-moz-pref("wireframe.blank.content")){
-  @-moz-document url("about:newtab"), url("about:home"), url("about:blank"), url("about:privatebrowsing") {
-    body::before {
-      content: "";
+
+
+/* old blank page logo using content rule */
+/*@-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
+    html,
+    body {
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
-  }
+
+    #root,
+    .container {
+        display: none;
+    }
+
+    body::before {
+        font-weight: 500;
+        position: absolute;
+        margin: auto;
+        font-size: 250%;
+        color: var(--na-color-text);
+        background-color: var(--na-color-bg);
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        text-align: center;
+        content: "░░▒▒▓▓";
+        visibility: visible;
+        background-image: "";
+        background-size: 5em;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
+
+@media (-moz-pref("wireframe.blank.content")) {
+    @-moz-document url("about:newtab"), url("about:home"), url("about:blank"), url("about:privatebrowsing") {
+        body::before {
+            content: "";
+        }
+    }
+}*/

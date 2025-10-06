@@ -14,7 +14,7 @@
     }
 }
 
-@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+/*@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {*/
     /* @media (prefers-color-scheme: light) {
     :root {
       --na-color-text: rgba(30, 31, 0, 1);
@@ -29,7 +29,7 @@
     }
   } */
 
-    @media (-moz-pref("wireframe.blank.theme", 0)) {
+    /*@media (-moz-pref("wireframe.blank.theme", 0)) {
         :root {
             --na-color-text: rgba(209, 207, 192, 1);
             --na-color-bg: rgba(30, 30, 31, 0.6);
@@ -49,10 +49,10 @@
             --na-color-bg: rgba(30, 30, 31, 0);
         }
     }
-}
+}*/
 
 /* new blank page logo cusotmisation using background image and svg */
-@-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
+/*@-moz-document url("about:newtab"), url("about:blank"), url("about:privatebrowsing") {
   html, body {
     overflow: hidden !important;
     margin: 0 !important;
@@ -67,27 +67,27 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 150px;
-    z-index: 9999; /* make sure it’s visible */
+    z-index: 9999; 
     transition: filter 0.3s ease;
-    pointer-events: none; /* so it doesn’t block anything */
-  }
+    pointer-events: none; 
+  }*/
 
   /* dark theme (default) */
-  @media (-moz-pref("wireframe.blank.theme", 0)) {
+  /*@media (-moz-pref("wireframe.blank.theme", 0)) {
     html::before {
       filter: invert(0);
     }
-  }
+  }*/
 
   /* light theme */
-  @media (-moz-pref("wireframe.blank.theme", 1)) {
+  /*@media (-moz-pref("wireframe.blank.theme", 1)) {
     html::before {
       filter: invert(1) hue-rotate(180deg);
     }
-  }
+  }*/
 
   /* transparent/dark theme */
-  @media (-moz-pref("wireframe.blank.theme", 2)) {
+  /*@media (-moz-pref("wireframe.blank.theme", 2)) {
     html::before {
       filter: invert(0);
     }
@@ -96,10 +96,10 @@
   #root,
   .container {
     display: none !important;
-  }
+  }*/
   
   /* === Logo Options === */
-  @media (-moz-pref("wireframe.blank.logo",0)){
+  /*@media (-moz-pref("wireframe.blank.logo",0)){
       html::before{
         background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/bf814f7214b44020f2d2587d705bffdadd02c7f8/elements/wireframe.svg");
       }
@@ -134,7 +134,7 @@
         background-image: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/globe.svg");
       }
   }
-}
+}*/
 
 
 

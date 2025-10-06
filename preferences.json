@@ -29,30 +29,34 @@
     "property": "wireframe.blank.logo",
     "label": "Change blank page logo",
     "value": "number",
-    "default": 0,
+    "default": 1,
     "options": [
       {
         "value": 0,
-        "label": "Wireframe"
+        "label": "No Logo"
       },
       {
         "value": 1,
-        "label": "Checks"
+        "label": "Wireframe"
       },
       {
         "value": 2,
-        "label": "Starlight"
+        "label": "Checks"
       },
       {
         "value": 3,
-        "label": "Rings"
+        "label": "Starlight"
       },
       {
         "value": 4,
-        "label": "Waves"
+        "label": "Rings"
       },
       {
         "value": 5,
+        "label": "Waves"
+      },
+      {
+        "value": 6,
         "label": "Globe"
       }
     ]

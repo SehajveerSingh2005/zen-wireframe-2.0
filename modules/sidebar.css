@@ -10,12 +10,13 @@
   border-radius: var(--na-user-border-radius) !important;
 }
 
-#zen-toolbar-background {
+.zen-toolbar-background {
   border-radius: var(--na-user-border-radius) !important;
 }
 
-#zen-toolbar-background{
-  &::before, &::after{
+
+.zen-toolbar-background {
+  &, &::before, &::after {
     border-radius: var(--na-user-border-radius) !important;
   }
 }
@@ -33,6 +34,19 @@
     margin-bottom: 6px !important;
     margin-top: 32px !important;
   }
+}
+
+/* === Border between sidebar and webview for nogaps mod */
+@media (-moz-pref("wireframe.nogaps.enabled")){
+    @media (-moz-pref("wireframe.nogaps.border.enabled")){
+        :root:not([zen-right-side],[zen-compact-mode="true"])[zen-sidebar-expanded="true"] #zen-sidebar-splitter {
+          border-right: 1px solid var(--na-color-border) !important;
+        }
+
+        :root:not([zen-compact-mode="true"])[zen-right-side][zen-sidebar-expanded="true"] #zen-sidebar-splitter {
+          border-left: 1px solid var(--na-color-border) !important;
+        }
+    }
 }
 
   /* expanded docked sidebar RIGHT side mode */
@@ -678,6 +692,6 @@ zen-folder {
 
 @media (-moz-pref("wireframe.essentials.border_radius",50)){
   :root{
-    --na-essen-border-radius: 50% !important;
+    --na-essen-border-radius: 100px !important;
   }
 }

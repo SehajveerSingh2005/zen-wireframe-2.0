@@ -1,0 +1,124 @@
+@media (-moz-pref("wireframe.blank.theme", 0)) {
+    :root {
+        --na-blank-bg: rgba(30, 30, 31, 0.6);
+    }
+}
+
+@media (-moz-pref("wireframe.blank.theme", 1)) {
+    :root {
+        --na-blank-bg: rgba(239, 233, 217, 0.6);
+    }
+}
+
+@media (-moz-pref("wireframe.blank.theme", 2)) {
+    :root {
+        --na-blank-bg: rgba(30, 30, 31, 0);
+    }
+}
+
+/* --- Empty-tab logo: colorable without touching the bg or PiP --- */
+
+/* ensure the tab content container is a positioned container for the pseudo */
+#browser:has([zen-empty-tab="true"][selected="true"]) .browserStack {
+    position: relative !important;
+    background-color: var(--na-blank-bg) !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 150px !important;
+}
+
+/* the logo sits in ::before so we can target it alone with a filter */
+#browser:has([zen-empty-tab="true"][selected="true"]) .browserStack::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 150px !important;
+    height: 150px !important;
+    background-image: var(
+        --wf-blank-logo,
+        url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/starlight.svg")
+    ) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    pointer-events: none !important; /* don’t block clicks */
+    z-index: 1 !important; /* over bg, below UI */
+    opacity: 1 !important;
+    transition:
+        filter 0.25s ease,
+        opacity 0.25s ease !important;
+    filter: var(--zen-logo-filter, none) !important;
+}
+
+/* THEME FILTERS — only affect the logo pseudo, NOT the bg or PiP */
+@media (-moz-pref("wireframe.blank.theme", 0)) {
+    :root {
+        --zen-logo-filter: invert(0);
+    }
+}
+@media (-moz-pref("wireframe.blank.theme", 1)) {
+    :root {
+        --zen-logo-filter: invert(1) hue-rotate(180deg);
+    }
+}
+@media (-moz-pref("wireframe.blank.theme", 2)) {
+    :root {
+        --zen-logo-filter: invert(0);
+    }
+}
+
+/* === Logo Options (switchable via wireframe.blank.logo) === */
+@media (-moz-pref("wireframe.blank.logo",0)) {
+    :root {
+        --wf-blank-logo: none;
+    }
+
+    #browser:has([zen-empty-tab="true"][selected="true"]) .browserStack::before {
+        display: none !important;
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",1)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/bf814f7214b44020f2d2587d705bffdadd02c7f8/elements/wireframe.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",2)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/checks.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",3)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/starlight.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",4)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/rings.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",5)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/waves.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",6)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/673ea4705827c12dfbaeb99f29ac026dc3e95e08/elements/globe.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo",7)) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/e0a1e918c99e87afab60bf6676b266e82ecefb37/elements/smiley.svg");
+    }
+}

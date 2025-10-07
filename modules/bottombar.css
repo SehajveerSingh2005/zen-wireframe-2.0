@@ -18,7 +18,6 @@
 }
 
 /* hide bottombar elements */
-/* hide bottombar elements */
 @media (-moz-pref("wireframe.toolbar.hide")) {
   #zen-appcontent-navbar-container #identity-box,
   #zen-appcontent-navbar-container #page-action-buttons,

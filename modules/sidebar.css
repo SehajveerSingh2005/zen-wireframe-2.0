@@ -455,10 +455,14 @@
   border-radius: var(--na-tab-border-radius) !important;
 }
 
-/* invert selected tab icon color */
-@meda (-moz-bool-pref: "wireframe.tab-icon.invert"){
-  .tabbrowser-tab[selected] .tab-reset-button,
-  .tabbrowser-tab[selected] .tab-close-button,
+/* invert selected tab reset/close button */
+.tabbrowser-tab[selected] .tab-reset-button,
+.tabbrowser-tab[selected] .tab-close-button {
+  filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
+}
+
+/* invert selected tab icon img */
+@media (-moz-bool-pref:"wireframe.tab-icon.invert"){
   .tabbrowser-tab[selected]:not([zen-essential]) img {
     filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
   }

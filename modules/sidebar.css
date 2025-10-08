@@ -442,9 +442,11 @@
 }
 
 /* tabs hover animation */
-.tabbrowser-tab:hover .tab-label-container,
-.tabbrowser-tab:hover .tab-icon-stack {
-  animation: slideUpAdressBar var(--na-anim-duration) ease;
+@media (-moz-bool-pref:"wireframe.tab-hover.animation"){
+  .tabbrowser-tab:hover .tab-label-container,
+  .tabbrowser-tab:hover .tab-icon-stack {
+    animation: slideUpAdressBar var(--na-anim-duration) ease;
+  }
 }
 
 /* focused tab */
@@ -454,10 +456,12 @@
 }
 
 /* invert selected tab icon color */
-.tabbrowser-tab[selected] .tab-reset-button,
-.tabbrowser-tab[selected] .tab-close-button,
-.tabbrowser-tab[selected]:not([zen-essential]) img {
-  filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
+@meda (-moz-bool-pref: "wireframe.tab-icon.invert"){
+  .tabbrowser-tab[selected] .tab-reset-button,
+  .tabbrowser-tab[selected] .tab-close-button,
+  .tabbrowser-tab[selected]:not([zen-essential]) img {
+    filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
+  }
 }
 
 /* hover border radius change for close button and reset button*/

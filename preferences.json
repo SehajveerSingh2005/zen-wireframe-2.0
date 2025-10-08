@@ -229,6 +229,26 @@
   },
   {
     "type": "checkbox",
+    "property": "wireframe.tab-hover.animation",
+    "label": "Enable tab hover animation",
+    "value": "boolean",
+    "default": true
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.tab-icon.invert",
+    "label": "Invert tab icon color",
+    "value": "boolean",
+    "default": true
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
     "property": "wireframe.nogaps.enabled",
     "label": "Enable no gap for single-toolbar",
     "value": "boolean",

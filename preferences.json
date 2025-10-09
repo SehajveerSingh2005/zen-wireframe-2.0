@@ -475,5 +475,74 @@
         "label": "SUSE Mono"
       }
     ]
+  },
+
+  {
+    "type": "text",
+    "label": "Picture-in-Picture",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.pip.disabled",
+    "label": "Disable Picture-in-Picture customization",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.pip.rounded",
+    "label": "Enable rounded corners for PiP window",
+    "value": "boolean",
+    "default": false
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.pip.border_radius",
+    "label": "Border radius for PiP controls",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "0px"
+      },
+      {
+        "value": 4,
+        "label": "4px"
+      },
+      {
+        "value": 6,
+        "label": "6px"
+      },
+      {
+        "value": 8,
+        "label": "8px"
+      },
+      {
+        "value": 10,
+        "label": "10px"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.pip.blur",
+    "label": "Enable blur effect on PiP controls",
+    "value": "boolean",
+    "default": false
   }
 ]

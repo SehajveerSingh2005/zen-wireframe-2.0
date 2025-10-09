@@ -281,12 +281,7 @@
     margin-bottom: 2px !important; /* to match bottombar */
   }
 
-/* docked sidebar */
-:root:not([zen-compact-mode="true"]) #navigator-toolbox {
-  /* background: var(--na-color-bg) !important; */
-  padding: 0px !important;
-  margin: 0px !important;
-}
+
 
 /* reduced height of floating sidebar for multiple/collapse toolbar */
 @media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
@@ -322,21 +317,7 @@
   min-width: 90px !important;
 }
 
-/* expanded docked sidebar LEFT side mode */
-:root:not([zen-right-side])[zen-sidebar-expanded="true"]:not([zen-compact-mode="true"]) #navigator-toolbox {
- /* background: var(--na-color-bg) !important; */
-  padding-right: 4px !important;
-  padding-left: 8px !important;
-  padding-top: 5px !important;
-}
 
-/* expanded docked sidebar RIGHT side mode */
-:root[zen-right-side][zen-sidebar-expanded="true"]:not([zen-compact-mode="true"]) #navigator-toolbox {
-  /* background: var(--na-color-bg) !important; */
-  padding-right: 8px !important;
-  padding-left: 4px !important;
-  padding-top: 5px !important;
-}
 
 /* ==== COMPACT MODE ==== */
 

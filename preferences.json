@@ -544,5 +544,32 @@
     "label": "Enable blur effect on PiP controls",
     "value": "boolean",
     "default": false
+  },
+  
+  {
+    "type": "text",
+    "label": "Media Player",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.player.minimal",
+    "label": "Make the Media Player window minimal (pip, volume, and call controls hidden)",
+    "value": "boolean",
+    "default": true
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "checkbox",
+    "property": "wireframe.player.flip",
+    "label": "Flipped media player",
+    "value": "boolean",
+    "default": false
   }
 ]

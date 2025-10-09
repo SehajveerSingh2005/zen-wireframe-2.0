@@ -5,7 +5,7 @@
     border-color: var(--na-color-border) !important;
     border-width: 2px !important;
     border-style: solid !important;
-    border-radius: 8px !important;
+    border-radius: var(--na-user-border-radius) !important;
     margin-bottom: 14px !important; /* Remove if workspace nav is at top */
 }
 
@@ -19,6 +19,66 @@
     overflow: hidden !important;
     min-width: 0 !important;
 }
+
+/* hide elements */
+@media (-moz-bool-pref: "wireframe.player.minimal"){
+  #zen-media-pip-button,
+  #zen-media-mute-button,
+  #zen-media-mute-mic-button,
+  #zen-media-mute-camera-button {
+      display: none !important;
+  }
+
+  #zen-media-controls-hbox {
+      display: flex !important;
+      justify-content: center !important; /* center all children horizontally */
+      align-items: center !important;     /* vertically center */
+  }
+
+  #zen-media-controls-hbox toolbarbutton[style*="display: none"] {
+      width: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+}
+
+@media (-moz-bool-pref: "wireframe.player.flip"){
+  /* Always show title and progress */
+  #zen-media-info-vbox,
+  #zen-media-controls-toolbar .show-on-hover {
+      max-height: unset !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      pointer-events: none; /* don't block clicks */
+      transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Hide controls by default */
+  #zen-media-buttons-hbox,
+  #zen-media-controls-hbox {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Show controls on hover */
+  #zen-media-controls-toolbar:hover #zen-media-buttons-hbox,
+  #zen-media-controls-toolbar:hover #zen-media-controls-hbox {
+      max-height: 32px !important; /* adjust to your button row height */
+      opacity: 1 !important;
+      overflow: visible !important;
+      pointer-events: auto !important;
+  }
+  
+  #zen-media-info-vbox {
+    mask-image: linear-gradient(to left, transparent, var(--na-color-bg) 0.6em);
+  }
+
+}
+
+
 
 /*Credit: JustAdumbPrson*/
 @-moz-document url-prefix("chrome:") {

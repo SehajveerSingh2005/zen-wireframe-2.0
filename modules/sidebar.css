@@ -442,9 +442,11 @@
 }
 
 /* tabs hover animation */
-.tabbrowser-tab:hover .tab-label-container,
-.tabbrowser-tab:hover .tab-icon-stack {
-  animation: slideUpAdressBar var(--na-anim-duration) ease;
+@media (-moz-bool-pref:"wireframe.tab-hover.animation"){
+  .tabbrowser-tab:hover .tab-label-container,
+  .tabbrowser-tab:hover .tab-icon-stack {
+    animation: slideUpAdressBar var(--na-anim-duration) ease;
+  }
 }
 
 /* focused tab */
@@ -453,11 +455,17 @@
   border-radius: var(--na-tab-border-radius) !important;
 }
 
-/* invert selected tab icon color */
+/* invert selected tab reset/close button */
 .tabbrowser-tab[selected] .tab-reset-button,
-.tabbrowser-tab[selected] .tab-close-button,
-.tabbrowser-tab[selected]:not([zen-essential]) img {
+.tabbrowser-tab[selected] .tab-close-button {
   filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
+}
+
+/* invert selected tab icon img */
+@media (-moz-bool-pref:"wireframe.tab-icon.invert"){
+  .tabbrowser-tab[selected]:not([zen-essential]) img {
+    filter: invert(100%) sepia(100%) brightness(120%) contrast(100%);
+  }
 }
 
 /* hover border radius change for close button and reset button*/

@@ -260,6 +260,10 @@
   bottom: 62.5px !important;
 }
 
+#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar[open]{
+  transform: translateX(0) !important;
+} 
+
 /* move urlbar input to bottom*/
 #urlbar>.urlbar-input-container {
   order: 1 !important;

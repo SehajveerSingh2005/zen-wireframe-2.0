@@ -72,8 +72,9 @@
       pointer-events: auto !important;
   }
   
-  #zen-media-info-vbox {
-    mask-image: linear-gradient(to left, transparent, var(--na-color-bg) 0.6em);
+  /* change gradient color */
+  #zen-media-info-vbox:before{
+    background: linear-gradient(to right, var(--na-color-bg) 0%, transparent 100%) !important;
   }
 
 }

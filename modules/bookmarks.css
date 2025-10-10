@@ -59,3 +59,8 @@
     clip-path: none !important;
   }
 } */
+
+/* === BOOKMARKS TOOLBAR === */
+#zen-appcontent-navbar-container #import-button{
+  display: none !important;
+}

@@ -510,6 +510,11 @@
   background: var(--na-color-text) !important;
 }
 
+/* active tab rename text fix */
+#tab-label-input{
+  color: var(--na-color-bg) !important;
+}
+
 .tabbrowser-tab .tab-background:not([zen-essential])::before{
   background: rgba(0,0,0,0.2) !important;
   margin: 0 !important;

@@ -476,7 +476,18 @@
       }
     ]
   },
-
+  {
+    "type": "separator"
+  },
+  {
+    "type": "string",
+    "property": "wireframe-font-size",
+    "processAs": "root",
+    "label": "Change font size for tabs",
+    "defaultValue": "",
+    "placeholder": "12px"
+  },
+  
   {
     "type": "text",
     "label": "Picture-in-Picture",

@@ -1,3 +1,7 @@
+:root {
+    --wireframe-font-size: unset;
+}
+
 /* Credits to Ferrocene */
 
 @media (-moz-pref("wireframe.font", "SF-Pro")) {
@@ -80,4 +84,9 @@
 * {
     font-weight: var(--wireframe-font_weight) !important;
     font-family: var(--wireframe-font);
+}
+
+.tab-text,
+.tab-group-label{
+    font-size: var(--wireframe-font-size) !important;
 }

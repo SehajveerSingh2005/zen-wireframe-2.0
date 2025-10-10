@@ -286,10 +286,7 @@ body > hbox {
     
     :root[zen-single-toolbar="true"]:not([customizing]) {
       & #zen-appcontent-navbar-wrapper {
-        display: none !important;;
-        -moz-window-dragging: drag;
-        min-height: var(--zen-element-separation);
-        height: var(--zen-element-separation);
+        margin-block: -4px !important;
       }
     }
   }

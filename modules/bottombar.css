@@ -18,34 +18,36 @@
 }
 
 /* hide bottombar elements */
-@media (-moz-pref("wireframe.toolbar.hide")) {
-  #zen-appcontent-navbar-container #identity-box,
-  #zen-appcontent-navbar-container #page-action-buttons,
-  #zen-appcontent-navbar-container #tracking-protection-icon-container,
-  #zen-appcontent-navbar-container .toolbarbutton-1 {
-    visibility: collapse !important;
-  }
-
-  /* Define the triggers that should reveal elements */
-  :root:not(:has(.tabbrowser-tab[selected][busy])):is(
-    :has(#customization-content-container:hover),
-    :has(toolbarpaletteitem:active),
-    :has(.anchor-root[open]),
-    :has(.urlbar-page-action[open]),
-    :has(#unified-extensions-button[open]),
-    :has(#zen-appcontent-navbar-container:hover),
-    :has(#zen-appcontent-navbar-container[has-popup-menu]),
-    :has(panelmultiview > .panel-viewcontainer[panelopen="true"]) /* <<< FIX */
-  ) {
-    #zen-appcontent-navbar-container {
-      padding-inline: 0px !important;
-    }
-
+@media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+  @media (-moz-pref("wireframe.toolbar.hide")) {
     #zen-appcontent-navbar-container #identity-box,
     #zen-appcontent-navbar-container #page-action-buttons,
     #zen-appcontent-navbar-container #tracking-protection-icon-container,
     #zen-appcontent-navbar-container .toolbarbutton-1 {
-      visibility: visible !important;
+      visibility: collapse !important;
+    }
+
+    /* Define the triggers that should reveal elements */
+    :root:not(:has(.tabbrowser-tab[selected][busy])):is(
+      :has(#customization-content-container:hover),
+      :has(toolbarpaletteitem:active),
+      :has(.anchor-root[open]),
+      :has(.urlbar-page-action[open]),
+      :has(#unified-extensions-button[open]),
+      :has(#zen-appcontent-navbar-container:hover),
+      :has(#zen-appcontent-navbar-container[has-popup-menu]),
+      :has(panelmultiview > .panel-viewcontainer[panelopen="true"]) /* <<< FIX */
+    ) {
+      #zen-appcontent-navbar-container {
+        padding-inline: 0px !important;
+      }
+
+      #zen-appcontent-navbar-container #identity-box,
+      #zen-appcontent-navbar-container #page-action-buttons,
+      #zen-appcontent-navbar-container #tracking-protection-icon-container,
+      #zen-appcontent-navbar-container .toolbarbutton-1 {
+        visibility: visible !important;
+      }
     }
   }
 }

@@ -210,7 +210,7 @@
   {
     "type": "checkbox",
     "property": "zen.theme.essentials-favicon-bg",
-    "label": "Disable favicon background for essentials",
+    "label": "Enable favicon gradient background for essentials",
     "value": "boolean",
     "default": true
   },

@@ -5,7 +5,7 @@
     border-color: var(--na-color-border) !important;
     border-width: 2px !important;
     border-style: solid !important;
-    border-radius: var(--na-user-border-radius) !important;
+    border-radius: var(--na-tab-border-radius) !important;
     margin-bottom: 14px !important; /* Remove if workspace nav is at top */
 }
 

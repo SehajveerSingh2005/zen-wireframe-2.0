@@ -69,6 +69,17 @@
     "type": "separator"
   },
   {
+    "type": "string",
+    "property": "wf-blank-logo-size",
+    "defaultValue": "150px",
+    "processAs": "root",
+    "label": "Change blank page logo size",
+    "placeholder": "150px"
+  },
+  {
+    "type": "separator"
+  },
+  {
     "type": "dropdown",
     "property": "wireframe.blank.theme",
     "label": "Change color scheme for about:blank",
@@ -148,7 +159,8 @@
     "property": "zen.view.experimental-force-window-controls-left",
     "label": "Force window controls to the left (for macOS style controls only)",
     "value": "boolean",
-    "default": true
+    "default": true,
+    "restart": true
   },
 
   {

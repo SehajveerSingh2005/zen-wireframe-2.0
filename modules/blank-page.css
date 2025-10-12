@@ -35,8 +35,8 @@
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: 150px !important;
-    height: 150px !important;
+    width: var(--wf-blank-logo-size) !important;
+    height: var(--wf-blank-logo-size) !important;
     background-image: var(
         --wf-blank-logo,
         url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/71864b9e5b5c6eca2586a013acc561fe32dbe998/elements/starlight.svg")

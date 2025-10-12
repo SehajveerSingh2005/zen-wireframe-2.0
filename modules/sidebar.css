@@ -260,9 +260,38 @@
   bottom: 62.5px !important;
 }
 
+/* HOTFIX : floating urlbar position for compact sidebar */
+:root[zen-compact-mode="true"]:not([zen-right-side="true"]){
+  #urlbar[open] {
+  min-width: var(--na-urlbar-width) !important;
+  max-width: var(--na-urlbar-width) !important;
+  left: 300% !important;
+  transform: translateX(-50%) !important;
+  right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  top: auto !important;
+  bottom: 32.5px !important;
+  }
+}
+
+:root[zen-compact-mode="true"][zen-right-side="true"]{
+  #urlbar[open] {
+  min-width: var(--na-urlbar-width) !important;
+  max-width: var(--na-urlbar-width) !important;
+  left: -220% !important;
+  transform: translateX(-50%) !important;
+  right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  top: auto !important;
+  bottom: 32.5px !important;
+  }
+}
+
 #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar[open]{
   transform: translateX(0) !important;
-} 
+}
 
 /* move urlbar input to bottom*/
 #urlbar>.urlbar-input-container {
@@ -402,10 +431,10 @@
   }
 }
 
-/* === sidebar content === */
+/* === SIDEBAR CONTENT === */
 
 #titlebar {
-  /* background: var(--na-color-bg) !important; */
+  /*! background: var(--na-color-bg) !important; */
 /*   padding-inline: 0px !important; */
   padding-bottom: 3px !important;
   border-radius: var(--na-user-border-radius) !important;
@@ -545,9 +574,22 @@ zen-folder {
   }
 }
 
+/* :root {
+  --wireframe-ess-width: 60px;
+}
+
+#zen-essentials-container, .zen-essentials-container {
+  grid-template-columns: repeat(var(--wireframe-ess-grid, 2), minmax(var(--wireframe-ess-width), auto)) !important;
+} */
+
 /* Border radius of essentials */
 .tabbrowser-tab:has([zen-essential]) .tab-background{
   border-radius: var(--na-essen-border-radius) !important;
+}
+
+/* Essentials Spacing */
+.zen-essentials-container{
+  gap: var(--wf-essentials-gap, 4px) !important;
 }
 
 /* workspace hover */
@@ -579,12 +621,6 @@ zen-folder {
   opacity: 1 !important;
 }
 
-/* @media (-moz-pref: "wireframe.compact.siderbar.transparent") {
-  :root[zen-compact-mode="true"] #navigator-toolbox {
-    background: var(--zen-primary-color)  !important;
-  }
-} */
-
 /* Pref to disable navigation buttons */
 @media (-moz-pref("wireframe.navigation.hide")){
   #back-button{
@@ -600,6 +636,8 @@ zen-folder {
 .tab-audio-button {
   color: var(--zen-primary-color) !important;
 }
+
+/* ======= MEDIA QUERIES FOR PREFERENCES ======== */
 
 /* Pref for tab and folder border radius */
 @media (-moz-pref("wireframe.tab.border_radius",0)){

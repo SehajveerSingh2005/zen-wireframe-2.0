@@ -374,6 +374,22 @@
   }
 }
 
+@media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+  /* expanded docked sidebar LEFT side mode */
+  :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
+    margin-left: 16px !important;
+    margin-bottom: 32px !important;
+    margin-top: 6px !important;
+  }
+
+  /* expanded docked sidebar RIGHT side mode */
+  :root[zen-right-side][zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {
+    margin-right: 16px !important;
+    margin-bottom: 32px !important;
+    margin-top: 6px !important;
+  }
+}
+
 @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
   /* expanded docked sidebar LEFT side mode */
   :root:not([zen-right-side])[zen-sidebar-expanded="true"][zen-compact-mode="true"] #titlebar {

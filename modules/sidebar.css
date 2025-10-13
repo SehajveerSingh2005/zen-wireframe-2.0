@@ -265,13 +265,13 @@
   #urlbar[open] {
   min-width: var(--na-urlbar-width) !important;
   max-width: var(--na-urlbar-width) !important;
-  left: 300% !important;
+  left: 50% !important;
   transform: translateX(-50%) !important;
   right: auto !important;
   display: flex !important;
   flex-direction: column !important;
   top: auto !important;
-  bottom: 32.5px !important;
+  bottom: 62.5px !important;
   }
 }
 
@@ -279,13 +279,13 @@
   #urlbar[open] {
   min-width: var(--na-urlbar-width) !important;
   max-width: var(--na-urlbar-width) !important;
-  left: -220% !important;
+  left: 50% !important;
   transform: translateX(-50%) !important;
   right: auto !important;
   display: flex !important;
   flex-direction: column !important;
   top: auto !important;
-  bottom: 32.5px !important;
+  bottom: 62.5px !important;
   }
 }
 

@@ -1,5 +1,14 @@
 /* FLOATING URLBAR */
 
+/* urlbar opening and closing animations */
+#urlbar[open]{
+  animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar[open]{
+  animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
 /* opening animation for the floating URL bar */
 @keyframes slideFromBottom {
     0% {
@@ -50,216 +59,220 @@
     }
 }
 
-/* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-[zen-compact-mode="true"] {
-    #urlbar-container:has(#urlbar[open]) {
-        position: fixed !important;
-        top: auto !important;
-        height: 40px !important;
-        min-height: 40px !important;
-        min-width: 100vw !important;
-        max-width: 100vw !important;
-        bottom: 0px !important;
-        left: 0px !important;
-        z-index: 10000 !important;
-    }
-}
-
-/* expanded urlbar */
-#urlbar {
-  top: auto !important;
-}
-
-/* urlbar behavior on expanded single-toolbar mode*/
-:root:not(
-        [zen-right-side="true"]
-    )[zen-sidebar-expanded="true"][zen-compact-mode="true"] {
-    #urlbar-container:has(#urlbar[open]) {
-        left: 0 !important;
-        right: auto !important;
-        margin-inline: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show]
-        #urlbar-container:hover {
-        margin-left: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
-            [zen-user-show]
-        )
-        #urlbar {
-        margin-left: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
-            [zen-user-show]
-        )[zen-has-hover]
-        #urlbar:not(:hover) {
-        margin-left: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"]))
-        #urlbar {
-        margin-left: 0px !important;
-    }
-}
-
-:root[zen-right-side="true"][zen-sidebar-expanded="true"][zen-compact-mode="true"] {
-    #urlbar-container:has(#urlbar[open]) {
-        left: auto !important;
-        right: 0 !important;
-        margin-inline: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show]
-        #urlbar-container:hover {
-        margin-right: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
-            [zen-user-show]
-        )
-        #urlbar {
-        margin-right: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
-            [zen-user-show]
-        )[zen-has-hover]
-        #urlbar:not(:hover) {
-        margin-right: 0px !important;
-    }
-
-    #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"]))
-        #urlbar {
-        margin-right: 0px !important;
-    }
-}
-
-#urlbar[open] {
-    min-width: var(--na-urlbar-width) !important;
-    max-width: var(--na-urlbar-width) !important;
-    left: 50% !important;
-    animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-    transform-origin: center bottom !important;
-    /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
-    right: auto !important;
-    /*! display: flex !important; */
-    flex-direction: column !important;
-    top: auto !important;
-    bottom: 62.5px !important;
-}
-
 /* changed urlbar box shadow */
 #urlbar[open] .urlbar-background{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
 
+@media (-moz-pref("wireframe.urlbar.style","slim")){
+  /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
+  [zen-compact-mode="true"] {
+      #urlbar-container:has(#urlbar[open]) {
+          position: fixed !important;
+          top: auto !important;
+          height: 40px !important;
+          min-height: 40px !important;
+          min-width: 100vw !important;
+          max-width: 100vw !important;
+          bottom: 0px !important;
+          left: 0px !important;
+          z-index: 10000 !important;
+      }
+  }
 
-
-/* loating urlbar position for compact sidebar */
-:root[zen-compact-mode="true"]:not([zen-right-side="true"]) {
-    #urlbar[open] {
-        min-width: var(--na-urlbar-width) !important;
-        max-width: var(--na-urlbar-width) !important;
-        left: 50% !important;
-        /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
-        right: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        top: auto !important;
-        bottom: 62.5px !important;
-    }
-}
-
-:root[zen-compact-mode="true"][zen-right-side="true"] {
-    #urlbar[open] {
-        min-width: var(--na-urlbar-width) !important;
-        max-width: var(--na-urlbar-width) !important;
-        left: 50% !important;
-        /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
-        right: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        top: auto !important;
-        bottom: 62.5px !important;
-    }
-}
-
-#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])
-    #urlbar[open] {
-    min-width: var(--na-urlbar-width) !important;
-    max-width: var(--na-urlbar-width) !important;
-    left: 50% !important;
-    animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-    transform-origin: center bottom !important;
-    /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
-    right: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
+  /* expanded urlbar */
+  #urlbar {
     top: auto !important;
-    bottom: 62.5px !important;
-}
+  }
+  
+  /* urlbar uses webview border radius */
+  .urlbar-background{
+    border-radius: var(--na-user-border-radius) !important;
+  }
 
-/* move urlbar input to bottom*/
-#urlbar > .urlbar-input-container {
-    order: 1 !important;
-}
+  /* urlbar behavior on expanded single-toolbar mode*/
+  :root:not(
+          [zen-right-side="true"]
+      )[zen-sidebar-expanded="true"][zen-compact-mode="true"] {
+      #urlbar-container:has(#urlbar[open]) {
+          left: 0 !important;
+          right: auto !important;
+          margin-inline: 0px !important;
+      }
 
-/* navbar padding */
-.urlbar-input-container {
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show]
+          #urlbar-container:hover {
+          margin-left: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
+              [zen-user-show]
+          )
+          #urlbar {
+          margin-left: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
+              [zen-user-show]
+          )[zen-has-hover]
+          #urlbar:not(:hover) {
+          margin-left: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"]))
+          #urlbar {
+          margin-left: 0px !important;
+      }
+  }
+
+  :root[zen-right-side="true"][zen-sidebar-expanded="true"][zen-compact-mode="true"] {
+      #urlbar-container:has(#urlbar[open]) {
+          left: auto !important;
+          right: 0 !important;
+          margin-inline: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show]
+          #urlbar-container:hover {
+          margin-right: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
+              [zen-user-show]
+          )
+          #urlbar {
+          margin-right: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not(
+              [zen-user-show]
+          )[zen-has-hover]
+          #urlbar:not(:hover) {
+          margin-right: 0px !important;
+      }
+
+      #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"]))
+          #urlbar {
+          margin-right: 0px !important;
+      }
+  }
+
+  #urlbar[open] {
+      min-width: var(--na-urlbar-width) !important;
+      max-width: var(--na-urlbar-width) !important;
+      left: 50% !important;
+      animation: slideFromBottom 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      transform-origin: center bottom !important;
+      /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
+      right: auto !important;
+      /*! display: flex !important; */
+      flex-direction: column !important;
+      top: auto !important;
+      bottom: 62.5px !important;
+  }
+
+  /* loating urlbar position for compact sidebar */
+  :root[zen-compact-mode="true"]:not([zen-right-side="true"]) {
+      #urlbar[open] {
+          min-width: var(--na-urlbar-width) !important;
+          max-width: var(--na-urlbar-width) !important;
+          left: 50% !important;
+          /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
+          right: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          top: auto !important;
+          bottom: 62.5px !important;
+      }
+  }
+
+  :root[zen-compact-mode="true"][zen-right-side="true"] {
+      #urlbar[open] {
+          min-width: var(--na-urlbar-width) !important;
+          max-width: var(--na-urlbar-width) !important;
+          left: 50% !important;
+          /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
+          right: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          top: auto !important;
+          bottom: 62.5px !important;
+      }
+  }
+
+  #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])
+      #urlbar[open] {
+      min-width: var(--na-urlbar-width) !important;
+      max-width: var(--na-urlbar-width) !important;
+      left: 50% !important;
+      animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      transform-origin: center bottom !important;
+      /*   transform: translateX(-50%) !important; */ /*removed becasue the animation handles it*/
+      right: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      top: auto !important;
+      bottom: 62.5px !important;
+  }
+
+  /* move urlbar input to bottom*/
+  #urlbar > .urlbar-input-container {
+      order: 1 !important;
+  }
+
+  /* navbar padding */
+  .urlbar-input-container {
+      padding-inline: 2px !important;
+  }
+
+  /* expanded urlbar items padding */
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar {
+    border: 0px solid var(--na-color-border) !important;
+    font-size: 1em !important;
+    height: fit-content !important;
     padding-inline: 2px !important;
-}
+    padding-block: 2px !important;
+    color: var(--zen-primary-text) !important;
+  }
 
-/* expanded urlbar items padding */
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar {
-  border: 0px solid var(--na-color-border) !important;
-  font-size: 1em !important;
-  height: fit-content !important;
-  padding-inline: 2px !important;
-  padding-block: 2px !important;
-  color: var(--zen-primary-text) !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input,
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-box {
-  margin: 0px !important;
-  padding: 0px !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
+    height: fit-content !important;
+    margin: 0px !important;
+    padding-block: 12px !important;
+    padding-inline: 17px !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar .urlbar-input-container {
-  height: fit-content !important;
-  margin: 0px !important;
-  padding-block: 12px !important;
-  padding-inline: 17px !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
+  #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
+  #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+   display: none !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
-#urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
-#urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
- display: none !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
+    margin-inline: 0px !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
-  margin-inline: 0px !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results {
+    font-size: 1em !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results {
-  font-size: 1em !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
+    display: none !important;
+  }
 
-#urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
-  display: none !important;
-}
-
-#urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results div {
-  margin: 0px !important;
-  padding-block: 2px !important;
-  padding-inline: 6px !important;
-}
+  #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results div {
+    margin: 0px !important;
+    padding-block: 2px !important;
+    padding-inline: 6px !important;
+  }
 
 /* Hide urlbar results */
   /* urlbar search result type icon (site that you bookmark will have star on the right side) */
@@ -386,6 +399,31 @@
     color: var(--zen-primary-text) !important;
     background-color: var(--na-color-text) !important;
   }
+}
+
+@media (-moz-pref("wireframe.urlbar.style","full")){
+  #urlbar[open] {
+    min-width: var(--na-urlbar-width) !important;
+    max-width: var(--na-urlbar-width) !important;
+  }
+  
+  .urlbar-background{
+    border-radius: var(--na-user-border-radius) !important;
+  }
+  
+/*   #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
+  #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
+  #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
+   display: none !important;
+  } */
+  
+  #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
+    display: none !important;
+  }
+}
+
 
 @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
   :root[zen-sidebar-expanded="true"] .urlbar-page-action,

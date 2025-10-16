@@ -159,13 +159,6 @@
     }
   }
 
-  @media not (-moz-bool-pref: "wireframe.urlbar.position.top"){
-    #nav-bar {
-      order: 1 !important;
-      margin-bottom: 10px !important;
-    }
-  }
-
     /* move sidebar navbar to bottom */
 
     [zen-compact-mode="true"] {
@@ -177,131 +170,8 @@
       #navigator-toolbox {
         margin-bottom: 16px !important;
       }
-
-      /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
-      #urlbar-container:has(#urlbar[open]) {
-        position: fixed !important;
-        top:  auto !important;
-        height: 40px !important;
-        min-height: 40px !important;
-        min-width: 100vw !important;
-        max-width: 100vw !important;
-        bottom: 0px !important;
-        left: 0px !important;
-        z-index: 10000 !important;
-      }
     }
   }
-
-  /* urlbar behavior on expanded single-toolbar mode*/
-    :root:not([zen-right-side="true"])[zen-sidebar-expanded="true"][zen-compact-mode="true"] {
-      #urlbar-container:has(#urlbar[open]) {
-        left: 0 !important;
-        right: auto !important;
-        margin-inline: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show] #urlbar-container:hover {
-        margin-left: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar {
-        margin-left: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])[zen-has-hover] #urlbar:not(:hover) {
-        margin-left: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"])) #urlbar {
-        margin-left: 0px !important;
-      }
-    }
-
-    :root[zen-right-side="true"][zen-sidebar-expanded="true"][zen-compact-mode="true"] {
-      #urlbar-container:has(#urlbar[open]) {
-        left: auto !important;
-        right: 0 !important;
-        margin-inline: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"])[zen-user-show] #urlbar-container:hover {
-        margin-right: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar {
-        margin-right: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show])[zen-has-hover] #urlbar:not(:hover) {
-        margin-right: 0px !important;
-      }
-
-      #navigator-toolbox:has(#urlbar[open]:not([zen-floating-urlbar="true"])) #urlbar {
-        margin-right: 0px !important;
-      }
-    }
-}
-
-/* expanded urlbar */
-#urlbar {
-  top: auto !important;
-}
-
-#urlbar[open] {
-  min-width: var(--na-urlbar-width) !important;
-  max-width: var(--na-urlbar-width) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  right: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  top: auto !important;
-  bottom: 62.5px !important;
-}
-
-/* HOTFIX : floating urlbar position for compact sidebar */
-:root[zen-compact-mode="true"]:not([zen-right-side="true"]){
-  #urlbar[open] {
-  min-width: var(--na-urlbar-width) !important;
-  max-width: var(--na-urlbar-width) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  right: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  top: auto !important;
-  bottom: 62.5px !important;
-  }
-}
-
-:root[zen-compact-mode="true"][zen-right-side="true"]{
-  #urlbar[open] {
-  min-width: var(--na-urlbar-width) !important;
-  max-width: var(--na-urlbar-width) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  right: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  top: auto !important;
-  bottom: 62.5px !important;
-  }
-}
-
-#navigator-toolbox:has(#urlbar[zen-floating-urlbar="true"]):not([zen-user-show]) #urlbar[open]{
-  transform: translateX(0) !important;
-}
-
-/* move urlbar input to bottom*/
-#urlbar>.urlbar-input-container {
-  order: 1 !important;
-}
-
-/* navbar padding */
-.urlbar-input-container {
-  padding-inline: 2px !important;
-}
 
 /* === SIDEBAR - MULTIPLE TOOLBAR === */
 
@@ -652,6 +522,15 @@ zen-folder {
 .tab-audio-button {
   color: var(--zen-primary-color) !important;
 }
+
+/* === TRANSPARENT COMPACT SIDEBAR === */
+/* :root[zen-compact-mode="true"] #titlebar{
+  backdrop-filter: blur(20px) !important;
+}
+
+:root[zen-compact-mode="true"] .zen-toolbar-background {
+  opacity: 0.5 !important;
+} */
 
 /* ======= MEDIA QUERIES FOR PREFERENCES ======== */
 

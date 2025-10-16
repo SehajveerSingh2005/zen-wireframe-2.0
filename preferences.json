@@ -7,102 +7,6 @@
   },
   {
     "type": "text",
-    "label": "General Theme Settings",
-    "margin": "30px 0 20px 0",
-    "size": "25px"
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "property": "wireframe.urlbar.position.top",
-    "label": "Position URL bar at the top (for multiple and collapsed toolbar only)",
-    "default": false,
-    "type": "checkbox",
-    "value": "boolean"
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "dropdown",
-    "property": "wireframe.blank.logo",
-    "label": "Change blank page logo",
-    "value": "number",
-    "default": 1,
-    "options": [
-      {
-        "value": 0,
-        "label": "No Logo"
-      },
-      {
-        "value": 1,
-        "label": "Wireframe"
-      },
-      {
-        "value": 2,
-        "label": "Checks"
-      },
-      {
-        "value": 3,
-        "label": "Starlight"
-      },
-      {
-        "value": 4,
-        "label": "Rings"
-      },
-      {
-        "value": 5,
-        "label": "Waves"
-      },
-      {
-        "value": 6,
-        "label": "Globe"
-      },
-      {
-        "value": 7,
-        "label": "Smiley"
-      }
-    ]
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "string",
-    "property": "wf-blank-logo-size",
-    "defaultValue": "150px",
-    "processAs": "root",
-    "label": "Change blank page logo size",
-    "placeholder": "150px"
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "dropdown",
-    "property": "wireframe.blank.theme",
-    "label": "Change color scheme for about:blank",
-    "value": "number",
-    "default": 0,
-    "options": [
-      {
-        "value": 0,
-        "label": "Dark Tint"
-      },
-      {
-        "value": 1,
-        "label": "Light Tint"
-      },
-      {
-        "value": 2,
-        "label": "Transparent"
-      }
-    ]
-  },
-
-  {
-    "type": "text",
     "label": "Window Controls",
     "margin": "30px 0 20px 0",
     "size": "25px"
@@ -208,6 +112,129 @@
     "label": "Make sidebar transparent in compact mode",
     "value": "boolean",
     "default": false
+  },
+  
+  {
+    "type": "text",
+    "label": "URL bar Settings",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.urlbar.style",
+    "label": "Change URL bar style",
+    "value": "string",
+    "default": "slim",
+    "options": [
+      {
+        "value": "slim",
+        "label": "slim"
+      },
+      {
+        "value": "full",
+        "label": "full"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "property": "wireframe.urlbar.position.top",
+    "label": "Position URL bar at the top (for multiple and collapsed toolbar only)",
+    "default": false,
+    "type": "checkbox",
+    "value": "boolean"
+  },
+  
+  {
+    "type": "text",
+    "label": "Blank Page Settings",
+    "margin": "30px 0 20px 0",
+    "size": "25px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.blank.logo",
+    "label": "Change blank page logo",
+    "value": "number",
+    "default": 1,
+    "options": [
+      {
+        "value": 0,
+        "label": "No Logo"
+      },
+      {
+        "value": 1,
+        "label": "Wireframe"
+      },
+      {
+        "value": 2,
+        "label": "Checks"
+      },
+      {
+        "value": 3,
+        "label": "Starlight"
+      },
+      {
+        "value": 4,
+        "label": "Rings"
+      },
+      {
+        "value": 5,
+        "label": "Waves"
+      },
+      {
+        "value": 6,
+        "label": "Globe"
+      },
+      {
+        "value": 7,
+        "label": "Smiley"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "string",
+    "property": "wf-blank-logo-size",
+    "defaultValue": "150px",
+    "processAs": "root",
+    "label": "Change blank page logo size",
+    "placeholder": "150px"
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.blank.theme",
+    "label": "Change color scheme for about:blank",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "Dark Tint"
+      },
+      {
+        "value": 1,
+        "label": "Light Tint"
+      },
+      {
+        "value": 2,
+        "label": "Transparent"
+      }
+    ]
   },
 
   {

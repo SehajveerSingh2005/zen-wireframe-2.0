@@ -9,56 +9,6 @@
   animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
 
-/* opening animation for the floating URL bar */
-@keyframes slideFromBottom {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(80px) scale(0.96);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-4px) scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-        filter: none;
-    }
-}
-
-@keyframes slideFromBottomfloat {
-    0% {
-        opacity: 0;
-        transform: translateX(0%) translateY(80px) scale(0.96);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(0%) translateY(-4px) scale(1.02);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0%) translateY(0) scale(1);
-        filter: none;
-    }
-}
-
-@keyframes urlbar-snappy {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100%) scale(0.95);
-    }
-    60% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-5%) scale(1.01);
-    }
-    80% {
-        transform: translateX(-50%) translateY(2%) scale(0.99);
-    }
-    100% {
-        transform: translateX(-50%) translateY(0%) scale(1);
-    }
-}
-
 /* changed urlbar box shadow */
 #urlbar[open] .urlbar-background{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
@@ -67,17 +17,17 @@
 @media (-moz-pref("wireframe.urlbar.style","slim")){
   /* move the navbar out from sidebar so url can have the same bahavior as other toolbar mode */
   [zen-compact-mode="true"] {
-      #urlbar-container:has(#urlbar[open]) {
-          position: fixed !important;
-          top: auto !important;
-          height: 40px !important;
-          min-height: 40px !important;
-          min-width: 100vw !important;
-          max-width: 100vw !important;
-          bottom: 0px !important;
-          left: 0px !important;
-          z-index: 10000 !important;
-      }
+    #urlbar-container:has(#urlbar[open]) {
+      position: fixed !important;
+      top: auto !important;
+      height: 40px !important;
+      min-height: 40px !important;
+      min-width: 100vw !important;
+      max-width: 100vw !important;
+      bottom: 0px !important;
+      left: 0px !important;
+      z-index: 10000 !important;
+    }
   }
 
   /* expanded urlbar */
@@ -170,8 +120,14 @@
       top: auto !important;
       bottom: 62.5px !important;
   }
+  
+  @media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+    #urlbar[open]{
+      animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    }
+  }
 
-  /* loating urlbar position for compact sidebar */
+  /* floating urlbar position for compact sidebar */
   :root[zen-compact-mode="true"]:not([zen-right-side="true"]) {
       #urlbar[open] {
           min-width: var(--na-urlbar-width) !important;
@@ -407,6 +363,12 @@
     max-width: var(--na-urlbar-width) !important;
   }
   
+  @media not (-moz-bool-pref: "zen.view.use-single-toolbar"){
+    #urlbar[open]{
+      animation: slideFromBottomfloat 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    }
+  }
+  
   .urlbar-background{
     border-radius: var(--na-user-border-radius) !important;
   }
@@ -424,7 +386,6 @@
   }
 }
 
-
 @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
   :root[zen-sidebar-expanded="true"] .urlbar-page-action,
   :root[zen-sidebar-expanded="true"] #tracking-protection-icon-container {
@@ -437,3 +398,69 @@
      margin-bottom: 10px !important;
    }
  }
+  
+/* opening animation for the floating URL bar */
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(80px) scale(0.96);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+        filter: none;
+    }
+}
+
+@keyframes slideFromBottomfloat {
+    0% {
+        opacity: 0;
+        transform: translateX(0%) translateY(80px) scale(0.96);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(0%) translateY(-4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%) translateY(0) scale(1);
+        filter: none;
+    }
+}
+  
+@keyframes slideFromBottommulti {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(80px) scale(0.96);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+        filter: none;
+    }
+}
+  
+@keyframes urlbar-snappy {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100%) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5%) scale(1.01);
+    }
+    80% {
+        transform: translateX(-50%) translateY(2%) scale(0.99);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0%) scale(1);
+    }
+}

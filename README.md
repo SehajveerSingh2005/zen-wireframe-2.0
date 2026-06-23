@@ -1,105 +1,123 @@
 # Wireframe 2.0
 
-A minimal, squared-off theme for Zen Browser that focuses on clean lines and efficient use of space.
+**An aesthetic chameleon for Zen Browser.**
 
-<img width="1920" height="1080" alt="Screenshot (33)" src="https://github.com/user-attachments/assets/ed962d1b-1e78-4235-932c-2c13fb5ede67" />
-<img width="1920" height="1080" alt="Screenshot (36)" src="https://github.com/user-attachments/assets/32bd38ae-1bed-44b9-b14b-76fc647a5ecd" />
+<img width="1920" height="1080" alt="Wireframe_Zen" src="https://github.com/user-attachments/assets/ed962d1b-1e78-4235-932c-2c13fb5ede67" />
+<br>
 
-## Features
+Wireframe 2.0 is a shape-shifting canvas. It doesn't lock you into a single look—with a few toggles, you can morph your browser from a sharp, grungy Y2K cyber-grid to a soft, pillowy pastel-minimalist setup.
 
-- Minimal design with squared-off elements
-- Clean color scheme
-- Efficient use of space
-- Modular CSS structure for easy customization
-- Customizable border radius for various UI elements
-- Multiple font options available
-- Enhanced window control customization
-- Favicon background control for essentials
+Think:
+
+- instant style morphing (Y2K cyber to soft pastel)  
+- extreme curvature tuning (brutalist 0px to bubble 24px)  
+- graphic pattern backdrops  
+- retro-cyber page emblems  
+- warp-speed animations  
+- glass-tinted overlays  
+
+Built for people who want their browser to match their daily mood, down to the pixel.
+
+---
+
+## Local Options
+
+- **Vibe Shifts**: Instantly flip from sharp-edged, high-contrast Y2K layouts to soft, rounded, pastel-toned desk aesthetics.
+- **Curvature Control**: Fine-tune your Webview, Window, Tabs, and Essentials anywhere from a razor-sharp `0px` to a pillowy `24px` (or go full `circle`).
+- **Geometric Backdrops**: Wrap your workspace in grid-lines, waves, stars, polka dots, stripes, or the custom *Marty Supreme* pattern.
+- **Blank Page Emblems**: Customize your `about:blank` with retro-cyber decals—barcodes, globes, asterisks, sad smileys, waves, or Y2K stars.
+- **Warp Speed Animations**: Choose how your URL bar loads (Magnetic Rise, PopCorn, Neon Flash) and how your screen warps on focus (CRT Snap, Film Grain Blur, Lights Off).
+- **Tactile Switchers**: Transition between tabs with vertical veils, prism shatters, blurry dreams, or film dissolves.
+- **Naked Details**: Auto-hide toolbar buttons, invert tab icons, enable fan-style switcher, or strip away favicon backgrounds for a completely clean canvas.
+- **Media & PiP Styling**: Compact media players, customizable Picture-in-Picture window corners, and blurred PiP controls.
+- **Curated Typography**: Select your monospace or grotesque vibe (SF-Pro, Bricolage Grotesque, Geist Mono, JetBrains Mono, SUSE, Monocraft).
+
+---
+
+## Preview
+
+> *"what if a design tool let you skin your browser from brutalist Y2K cyber to soft pastel minimal in two clicks?"*
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/32bd38ae-1bed-44b9-b14b-76fc647a5ecd" />
+<br>
+
+---
+
+Everything adapts to your mood.
+
+Tabs morph.  
+Borders soften.  
+The interface flows from high-contrast terminal grids to a soft pastel companion.
+
+It’s flexible.
+
+In a good way.
+
+---
 
 ## Installation
 
-### Method 1: Using Sine (Recommended)
-1. Install [sine](https://github.com/CosmoCreeper/Sine) if you haven't.
-2. Head to the sine marketplace, search or browse through to find Wireframe 2.0.
-3. Click install.
-Note: To changes mods settings, head to sine mods tab in settings and click on the gear icon under wireframe 2.0 in the installed mods section below marketplace.
-### Method 2:
-1. Download chrome.zip from the latest release or download the files of the repo.
-2. Place them in your Zen Browser profile's chrome folder
-3. Restart Zen Browser
+Install easily through **Sine**, a modern mod manager for Firefox-based browsers.
 
-## MicaForEveryone Setup (Windows 10/11)
+### 1. Install Sine
 
-To achieve the clean squared-off window borders as shown in the theme screenshots, you can use MicaForEveryone:
+Download and install Sine.
 
-1. Download and install MicaForEveryone from [GitHub](https://github.com/MicaForEveryone/MicaForEveryone) or Microsoft Store
-2. Launch MicaForEveryone
-3. Click on "Add new rule" > Add process rule > type "zen" and add rule
-4. Choose corner preference "squared" from the dropdown
+### 2. Add Wireframe
+
+Search for **Wireframe 2.0**
+
+**or**
+
+paste this into custom mod input:
+
+```bash
+SehajveerSingh2005/zen-wireframe-2.0
+```
+
+### 3. Apply Theme & Customize
+
+Enable Wireframe 2.0 from your installed mods.
+
+Click the gear icon under **Wireframe 2.0** in your Sine settings to access the massive panel of local preferences and tweak it to your heart's content.
+
+---
+
+## Pro-Tip: Zero-Curvature Window Borders (Windows 10/11)
+
+Want those perfectly razor-sharp, zero-curvature window edges shown in the screenshots? Since Windows overrides theme borders, you can enforce it using **MicaForEveryone**:
+
+1. Download and install MicaForEveryone from [GitHub](https://github.com/MicaForEveryone/MicaForEveryone).
+2. Click on "Add new rule" > Add process rule > type `zen`.
+3. Choose corner preference **Squared** from the dropdown.
 
 <img width="1148" height="794" alt="Screenshot 2025-09-10 105529" src="https://github.com/user-attachments/assets/5b80b051-30a6-4bac-91fd-a4a4c65799e7" />
 
-## Structure
+---
 
-- `userChrome.css` - Main file that imports all modules
-- `modules/` - Directory containing modular CSS files
-- `preferences.json` - Theme preferences file
+## Philosophy
 
-## Customization
+Most browser themes force a single identity on you.
 
-You can customize the theme by modifying the variables in `modules/variables.css` or by overriding specific styles in the individual module files.
+Wireframe 2.0 does the opposite.
 
-## Border Radius Customization
+It’s an open-ended playground that recognizes your design tastes change. By making borders, curves, animations, and graphic details hot-swappable, it lets you transition between retro-tech and modern-minimalism whenever you feel like it.
 
-Wireframe 2.0 introduces extensive border radius customization options. You can adjust the corner radius for different UI elements through the preferences:
+Somewhere between:
 
-- Webview: Control the border radius of the web content area
-- Window: Adjust the border radius of the browser window
-- Tabs: Customize the border radius of browser tabs
-- Essentials: Modify the border radius of essential UI elements like bookmarks and extensions
+* Y2K cyber portals
+* soft pastel desk setups
+* interactive design systems
+* retro console customization
 
-## Typography Options
+---
 
-The theme now supports multiple font options to customize the look and feel:
+## Why I Built This
 
-- SF-Pro: Apple's system font
-- Bricolage Grotesque: Modern grotesque font
-- Geist Mono: Clean monospace font
-- JetBrains Mono: Developer-focused monospace font
-- SUSE: Clean sans-serif font
-- SUSE Mono: Monospace variant of SUSE
+Because your browser shouldn't just match your wallpaper; it should match your mood.
 
-## Favicon Background Control
+---
 
-You can now disable the background for favicons in the essentials toolbar using the `zen.theme.essentials-favicon-bg` preference. This provides a cleaner look for favicons in the toolbar.
+**Wireframe 2.0**
 
-## Preferences
-
-The theme includes several customizable preferences that can be adjusted through Zen Browser's preferences system:
-
-- `wireframe.animations.enabled` - Enable animations in Wireframe theme
-- `wireframe.borders.squared` - Use squared borders
-- `wireframe.urlbar.position.top` - Position URL bar at the top (for multiple and collapsed toolbar only)
-- `wireframe.webview.border-radius` - Border radius for webview (e.g., 0px, 4px, 8px, 12px)
-- `wireframe.macos.controls` - Disable macOS style window controls
-- `zen.view.experimental-force-window-controls-left` - Force window controls to the left (for macOS style controls only)
-- `wireframe.blank.theme` - Switch to light mode for about:blank
-- `wireframe.blank.content` - Remove logo from about:blank
-- `wireframe.macos.controls.radius` - Change macOS window control radius (square, squircle, circle)
-- `wireframe.controls.reverse` - Reverse window controls
-- `wireframe.toolbar.hide` - Auto hide toolbar buttons (reveal on hover)
-- `wireframe.navigation.hide` - Disable navigation buttons
-- `wireframe.statusbar.disable` - Disable status bar
-- `wireframe.compact.siderbar.transparent` - Make sidebar transparent in compact mode
-- `zen.theme.essentials-favicon-bg` - Disable favicon background for essentials
-- `wireframe.audio.indicator.disable` - Disable audio indicator on tab
-- `wf-border-color` - Change color for window border (currently not working)
-- `wireframe.webview.border_radius` - Border radius for webview (0px, 4px, 8px, 12px, 16px, 20px)
-- `wireframe.window.border_radius` - Border radius for window (0px, 4px, 8px, 12px, 16px, 20px, 24px)
-- `wireframe.tab.border_radius` - Border radius for tabs (0px, 4px, 8px, 12px, 16px, 20px, 24px)
-- `wireframe.essentials.border_radius` - Border radius for essentials (0px, 4px, 8px, 12px, 16px, 20px, 24px, circle)
-- `wireframe.font` - Font selection (SF-Pro, Bricolage, GeistMono, JetBrainsMono, SUSE, SUSEMono)
-
-## Contributing
-
-Feel free to fork this theme and make your own modifications. Pull requests are welcome!
+*shift your vibe.*

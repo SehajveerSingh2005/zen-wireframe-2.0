@@ -2,7 +2,7 @@
 
 **An aesthetic chameleon for Zen Browser.**
 
-<img width="1920" height="1080" alt="Wireframe_Zen" src="https://github.com/user-attachments/assets/ed962d1b-1e78-4235-932c-2c13fb5ede67" />
+<img width="1920" height="1080" alt="Screenshot (233)" src="https://github.com/user-attachments/assets/cb60b1c0-47dd-4efd-a032-22939233654c" />
 <br>
 
 Wireframe 2.0 is a shape-shifting canvas. It doesn't lock you into a single look—with a few toggles, you can morph your browser from a sharp, grungy Y2K cyber-grid to a soft, pillowy pastel-minimalist setup.
@@ -38,8 +38,18 @@ Built for people who want their browser to match their daily mood, down to the p
 
 > *"what if a design tool let you skin your browser from brutalist Y2K cyber to soft pastel minimal in two clicks?"*
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/32bd38ae-1bed-44b9-b14b-76fc647a5ecd" />
+<img width="1920" height="1080" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/2ca85389-ebd1-4e2c-9439-aec978888ff4" />
 <br>
+
+<img width="1920" height="1080" alt="Screenshot (240)" src="https://github.com/user-attachments/assets/1f5652fb-730a-420a-9ce5-f1094d93c09c" />
+<br>
+
+<img width="1920" height="1080" alt="Wireframe_Zen" src="https://github.com/user-attachments/assets/ed962d1b-1e78-4235-932c-2c13fb5ede67" />
+<br>
+
+<img width="1920" height="1080" alt="Screenshot (236)" src="https://github.com/user-attachments/assets/32c5eea1-eb72-4b03-9e6e-fa3fff539ec1" />
+<br>
+
 
 ---
 

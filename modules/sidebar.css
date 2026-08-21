@@ -278,7 +278,6 @@
     
     #titlebar .zen-current-workspace-indicator > label{
       font-size: var(--wireframe-font-size) !important;
-      margin-left: -10px !important;
       transition: margin-left 0.26s cubic-bezier(.25,.8,.25,1) !important;
     }
     
@@ -662,22 +661,32 @@ zen-folder {
 }
  */
 /* === TRANSPARENT COMPACT SIDEBAR === */
-@media (-moz-pref("wireframe.compact.sidebar.transparent")){
-  :root[zen-compact-mode="true"] #titlebar::before{
-    content: "";
-    inset: 0;
-    position: absolute;
-    pointer-events: none;
+@media (-moz-pref("wireframe.compact.sidebar.transparent")) {
+
+  /* blur layer moved to actual background container */
+  :root[zen-compact-mode="true"] #zen-toolbar-background::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+
     backdrop-filter: blur(24px) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(24px) brightness(1.15) !important;
+
+    /* required for backdrop-filter to render properly */
+    background: rgba(255, 255, 255, 0.04) !important;
   }
-  
-  :root[zen-compact-mode="true"] #zen-sidebar-top-buttons{
+
+  /* keep UI elements above blur */
+  :root[zen-compact-mode="true"] #zen-sidebar-top-buttons {
+    position: relative !important;
     z-index: 1 !important;
   }
 
+  /* remove conflicting background that was killing blur */
   :root[zen-compact-mode="true"] .zen-toolbar-background {
-    background: var(--zen-main-browser-background) !important;
-    opacity: 0.5 !important;
+    background: transparent !important;
+    opacity: 1 !important;
   }
 }
 
@@ -692,7 +701,7 @@ zen-folder {
     border-radius: var(--na-tab-border-radius) !important;
     transition: all 0.18s ease !important;
     outline: 2px solid var(--zen-toolbar-element-bg) !important;
-    outline-offset: -4px !important;
+    outline-offset: -2px !important;
   }
 }
 

@@ -531,6 +531,14 @@
       {
         "value": "marty-supreme",
         "label": "MARTY SUPREME"
+      },
+      {
+        "value": "eyes",
+        "label": "Eyes"
+      },
+      {
+        "value": "heart-eyes",
+        "label": "Heart Eyes"
       }
     ]
   },

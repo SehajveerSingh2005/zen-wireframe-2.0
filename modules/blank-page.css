@@ -37,7 +37,7 @@
 }
 
 /* ensure the tab content container is a positioned container for the pseudo */
-#browser:has([zen-empty-tab="true"][selected="true"]) .browserStack {
+#main-window[zen-has-empty-tab="true"] .browserStack {
     position: relative !important;
     z-index: 0 !important;
     background-color: var(--na-blank-bg) !important;
@@ -48,7 +48,7 @@
 }
 
 /* blank logo on pseudo element */
-#browser:has([zen-empty-tab="true"][selected="true"]) .browserStack::before {
+#main-window[zen-has-empty-tab="true"] .browserStack::before {
     content: "" !important;
     position: absolute !important;
     left: 50% !important;
@@ -73,7 +73,7 @@
 }
 
 /* blank logo reduced opacity on inactive window */
-#browser:has([zen-empty-tab="true"][selected="true"]) .browserStack:-moz-window-inactive::before {
+#main-window[zen-has-empty-tab="true"] .browserStack:-moz-window-inactive::before {
   opacity: 0.45 !important;
 }
 
@@ -102,7 +102,7 @@
         --wf-blank-logo: none;
     }
 
-    #browser:has([zen-empty-tab="true"][selected="true"]) .browserStack::before {
+    #main-window:has([zen-has-empty-tab="true"]) .browserStack::before {
         display: none !important;
     }
 }
@@ -205,5 +205,17 @@
     /* Disabling filter for Marty Supreme */
     :root {
         --zen-logo-filter: none;
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo", "eyes")) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/c014d9967e02fa49a8bf30564d058d263c10acd8/elements/eyes.svg");
+    }
+}
+
+@media (-moz-pref("wireframe.blank.logo", "heart-eyes")) {
+    :root {
+        --wf-blank-logo: url("https://raw.githubusercontent.com/SehajveerSingh2005/zen-wireframe-2.0/c014d9967e02fa49a8bf30564d058d263c10acd8/elements/heart-eyes.svg");
     }
 }

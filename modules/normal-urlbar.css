@@ -2,11 +2,10 @@
 
 /* ====== NORMAL URLBAR BEHAVIOUR ======*/
 
-#navigator-toolbox:has(#urlbar[zen-floating-urlbar="false"]){
+#navigator-toolbox:has(#urlbar:not([zen-floating-urlbar="true"])){
   
-  .urlbar-background{
-    border-radius: var(--na-window-border-radius) !important;
-  }
+  /* NOTE: .urlbar-background radius is derived in variables.css from the
+     Zen radius system (--zen-border-radius × --wf-radius-scale). */
   /* single-toolbar */
   /* style - full, normal */
   @media (-moz-pref("wireframe.urlbar.style","full")){
@@ -69,20 +68,20 @@
       #urlbar-container:has(#urlbar[breakout-extend]) #identity-box,
       #urlbar-container:has(#urlbar[breakout-extend]) #page-action-buttons,
       #urlbar-container:has(#urlbar[breakout-extend]) #tracking-protection-icon-container,
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-go-button,
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbar-go-button,
       #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-anon-search-settings {
        display: none !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results>.urlbarView-row>.urlbarView-row-inner>.urlbarView-url {
         margin-inline: 0px !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results {
         font-size: 1em !important;
       }
 
-      #urlbar-container:has(#urlbar[breakout-extend]) #urlbar-results img {
+      #urlbar-container:has(#urlbar[breakout-extend]) .urlbarView-results img {
         display: none !important;
       }
 

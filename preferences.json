@@ -266,43 +266,6 @@
     "type": "separator"
   },
   {
-    "type": "dropdown",
-    "property": "wireframe.urlbar.border_radius",
-    "label": "Border radius for urlbar",
-    "value": "number",
-    "default": 16,
-    "options": [
-      {
-        "value": 0,
-        "label": "0px"
-      },
-      {
-        "value": 4,
-        "label": "4px"
-      },
-      {
-        "value": 8,
-        "label": "8px"
-      },
-      {
-        "value": 12,
-        "label": "12px"
-      },
-      {
-        "value": 16,
-        "label": "16px"
-      },
-      {
-        "value": 20,
-        "label": "20px"
-      },
-      {
-        "value": 24,
-        "label": "24px"
-      }
-    ]
-  },
-  {
     "type": "separator"
   },
   {
@@ -913,34 +876,38 @@
   },
   {
     "type": "dropdown",
-    "property": "wireframe.webview.border_radius",
-    "label": "Border radius for webview",
+    "property": "wireframe.radius_scale",
+    "label": "Corner roundness (all radii)",
     "value": "number",
-    "default": 16,
+    "default": 100,
     "options": [
       {
         "value": 0,
-        "label": "0px"
+        "label": "Squared"
       },
       {
-        "value": 4,
-        "label": "4px"
+        "value": 50,
+        "label": "Tight"
       },
       {
-        "value": 8,
-        "label": "8px"
+        "value": 75,
+        "label": "Subtle"
       },
       {
-        "value": 12,
-        "label": "12px"
+        "value": 100,
+        "label": "Default"
       },
       {
-        "value": 16,
-        "label": "16px"
+        "value": 125,
+        "label": "Rounded"
       },
       {
-        "value": 20,
-        "label": "20px"
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
       }
     ]
   },
@@ -949,38 +916,342 @@
   },
   {
     "type": "dropdown",
-    "property": "wireframe.window.border_radius",
-    "label": "Border radius for window",
+    "property": "wireframe.webview.radius_scale",
+    "label": "Corner roundness - webview",
     "value": "number",
-    "default": 8,
+    "default": 100,
     "options": [
       {
         "value": 0,
-        "label": "0px"
+        "label": "Squared"
       },
       {
-        "value": 4,
-        "label": "4px"
+        "value": 50,
+        "label": "Tight"
       },
       {
-        "value": 8,
-        "label": "8px"
+        "value": 75,
+        "label": "Subtle"
+      },
+      {
+        "value": 100,
+        "label": "Follow global"
+      },
+      {
+        "value": 125,
+        "label": "Rounded"
+      },
+      {
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.window.radius_scale",
+    "label": "Corner roundness - window",
+    "value": "number",
+    "default": 100,
+    "options": [
+      {
+        "value": 0,
+        "label": "Squared"
+      },
+      {
+        "value": 50,
+        "label": "Tight"
+      },
+      {
+        "value": 75,
+        "label": "Subtle"
+      },
+      {
+        "value": 100,
+        "label": "Follow global"
+      },
+      {
+        "value": 125,
+        "label": "Rounded"
+      },
+      {
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.tab.radius_scale",
+    "label": "Corner roundness - tabs & folders",
+    "value": "number",
+    "default": 100,
+    "options": [
+      {
+        "value": 0,
+        "label": "Squared"
+      },
+      {
+        "value": 50,
+        "label": "Tight"
+      },
+      {
+        "value": 75,
+        "label": "Subtle"
+      },
+      {
+        "value": 100,
+        "label": "Follow global"
+      },
+      {
+        "value": 125,
+        "label": "Rounded"
+      },
+      {
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.essen.radius_scale",
+    "label": "Corner roundness - essentials",
+    "value": "number",
+    "default": 100,
+    "options": [
+      {
+        "value": 0,
+        "label": "Squared"
+      },
+      {
+        "value": 50,
+        "label": "Tight"
+      },
+      {
+        "value": 75,
+        "label": "Subtle"
+      },
+      {
+        "value": 100,
+        "label": "Follow global"
+      },
+      {
+        "value": 125,
+        "label": "Rounded"
+      },
+      {
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.urlbar.radius_scale",
+    "label": "Corner roundness - urlbar",
+    "value": "number",
+    "default": 100,
+    "options": [
+      {
+        "value": 0,
+        "label": "Squared"
+      },
+      {
+        "value": 50,
+        "label": "Tight"
+      },
+      {
+        "value": 75,
+        "label": "Subtle"
+      },
+      {
+        "value": 100,
+        "label": "Follow global"
+      },
+      {
+        "value": 125,
+        "label": "Rounded"
+      },
+      {
+        "value": 150,
+        "label": "Rounder"
+      },
+      {
+        "value": 200,
+        "label": "Extra round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.squircle",
+    "label": "Squircle exponent (corner geometry)",
+    "value": "number",
+    "default": 0,
+    "options": [
+      {
+        "value": 0,
+        "label": "Zen default"
+      },
+      {
+        "value": 10,
+        "label": "1.0 - Round"
       },
       {
         "value": 12,
-        "label": "12px"
+        "label": "1.2 - Soft"
       },
       {
-        "value": 16,
-        "label": "16px"
+        "value": 15,
+        "label": "1.5 - Medium"
       },
       {
         "value": 20,
-        "label": "20px"
+        "label": "2.0 - Squircle"
       },
       {
-        "value": 24,
-        "label": "24px"
+        "value": 30,
+        "label": "3.0 - Sharp"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.webview.shape",
+    "label": "Corner shape - webview",
+    "value": "string",
+    "defaultValue": "squircle",
+    "options": [
+      {
+        "value": "squircle",
+        "label": "Squircle (follow global)"
+      },
+      {
+        "value": "round",
+        "label": "Round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.window.shape",
+    "label": "Corner shape - window",
+    "value": "string",
+    "defaultValue": "squircle",
+    "options": [
+      {
+        "value": "squircle",
+        "label": "Squircle (follow global)"
+      },
+      {
+        "value": "round",
+        "label": "Round"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.tab.shape",
+    "label": "Corner shape - tabs & folders",
+    "value": "string",
+    "defaultValue": "squircle",
+    "options": [
+      {
+        "value": "squircle",
+        "label": "Squircle (follow global)"
+      },
+      {
+        "value": "round",
+        "label": "Round"
+      },
+      {
+        "value": "pill",
+        "label": "Pill"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.essen.shape",
+    "label": "Corner shape - essentials",
+    "value": "string",
+    "defaultValue": "squircle",
+    "options": [
+      {
+        "value": "squircle",
+        "label": "Squircle (follow global)"
+      },
+      {
+        "value": "round",
+        "label": "Round"
+      },
+      {
+        "value": "pill",
+        "label": "Pill"
+      }
+    ]
+  },
+  {
+    "type": "separator"
+  },
+  {
+    "type": "dropdown",
+    "property": "wireframe.urlbar.shape",
+    "label": "Corner shape - urlbar",
+    "value": "string",
+    "defaultValue": "squircle",
+    "options": [
+      {
+        "value": "squircle",
+        "label": "Squircle (follow global)"
+      },
+      {
+        "value": "round",
+        "label": "Round"
       }
     ]
   },
@@ -1008,46 +1279,6 @@
   },
   {
     "type": "dropdown",
-    "property": "wireframe.tab.border_radius",
-    "label": "Border radius for tabs",
-    "value": "number",
-    "default": 16,
-    "options": [
-      {
-        "value": 0,
-        "label": "0px"
-      },
-      {
-        "value": 4,
-        "label": "4px"
-      },
-      {
-        "value": 8,
-        "label": "8px"
-      },
-      {
-        "value": 12,
-        "label": "12px"
-      },
-      {
-        "value": 16,
-        "label": "16px"
-      },
-      {
-        "value": 20,
-        "label": "20px"
-      },
-      {
-        "value": 24,
-        "label": "24px"
-      }
-    ]
-  },
-  {
-    "type": "separator"
-  },
-  {
-    "type": "dropdown",
     "property": "wireframe.essen.borders",
     "label": "Border styling for essentials",
     "value": "string",
@@ -1064,47 +1295,6 @@
   },
   {
     "type": "separator"
-  },
-  {
-    "type": "dropdown",
-    "property": "wireframe.essentials.border_radius",
-    "label": "Border radius for essentials",
-    "value": "number",
-    "default": 16,
-    "options": [
-      {
-        "value": 0,
-        "label": "0px"
-      },
-      {
-        "value": 4,
-        "label": "4px"
-      },
-      {
-        "value": 8,
-        "label": "8px"
-      },
-      {
-        "value": 12,
-        "label": "12px"
-      },
-      {
-        "value": 16,
-        "label": "16px"
-      },
-      {
-        "value": 20,
-        "label": "20px"
-      },
-      {
-        "value": 24,
-        "label": "24px"
-      },
-      {
-        "value": 50,
-        "label": "Round"
-      }
-    ]
   },
   {
     "type": "text",

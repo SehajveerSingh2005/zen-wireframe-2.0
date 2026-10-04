@@ -6,14 +6,152 @@
 :root {
   --na-border-radius: 0px !important;
   --na-border-radius-small: 0px !important;
-  --na-user-border-radius: 16px; /* This will be controlled by the preference */
   --na-window-margin: 12px !important;
-  --na-window-border-radius: 0px; /* Pref var for window border radius */
-  --na-tab-border-radius: 0px; /* Pref var for tabs and folders border radius */
-  --na-essen-border-radius: 0px; /* Pref var for essentials border radius */
-  --na-urlbar-border-radius: 16px; /* Pref var for floating urlbar */
   --na-anim-duration: 0.3s;
   --na-urlbar-width: 40vw; /* vw: viewport or your browser width, 100vw means 100% browser width */
+
+  /* === Dynamic radius system (Zen 1.23+) ===
+     Base = Zen's own radius (--zen-border-radius, from the
+     zen.theme.border-radius preference) × the global roundness scale.
+     Every element radius = base × ratio × per-element scale, so:
+       - one knob moves everything (like stock Zen),
+       - each element can still be tuned independently,
+       - tweaks stay coherent when the base or the shape changes. */
+
+  /* Global roundness (pref: wireframe.radius_scale) */
+  --wf-radius-scale: 1;
+
+  /* Per-element roundness multipliers (default 1 = follow global).
+     Prefs: wireframe.<group>.radius_scale */
+  --wf-radius-scale-panel: 1;   /* webview, sidebar panels */
+  --wf-radius-scale-window: 1;  /* window border */
+  --wf-radius-scale-tab: 1;     /* tabs, folders, new-tab button */
+  --wf-radius-scale-essen: 1;   /* essentials */
+  --wf-radius-scale-urlbar: 1;  /* floating URL bar */
+
+  /* Hierarchy ratios (edit these to retune the default look).
+     Note: small elements saturate — a tab is 46px tall so anything ≥23px is
+     an identical pill, and essentials grid cells cap around ~18px. The tab /
+     essen ratios below are calibrated so scale 200 lands exactly on those
+     caps, keeping the whole 0–200 slider visibly useful. */
+  --wf-radius-ratio-panel: 1.75;
+  --wf-radius-ratio-window: 2.25;
+  --wf-radius-ratio-tab: 1.3;
+  --wf-radius-ratio-essen: 1.0;
+
+  --wf-radius: calc(var(--zen-border-radius, 9px) * var(--wf-radius-scale));
+
+  --na-user-border-radius: calc(var(--wf-radius) * var(--wf-radius-ratio-panel) * var(--wf-radius-scale-panel));
+  --na-window-border-radius: calc(var(--wf-radius) * var(--wf-radius-ratio-window) * var(--wf-radius-scale-window));
+  --na-tab-border-radius: calc(var(--wf-radius) * var(--wf-radius-ratio-tab) * var(--wf-radius-scale-tab));
+  --na-essen-border-radius: calc(var(--wf-radius) * var(--wf-radius-ratio-essen) * var(--wf-radius-scale-essen));
+  --na-urlbar-border-radius: calc(var(--wf-radius) * var(--wf-radius-ratio-panel) * var(--wf-radius-scale-urlbar));
+
+  /* === Corner shape (dynamic) ===
+     Global geometry follows --zen-squircle-value (pref: wireframe.squircle),
+     so one value reshapes the whole theme like stock Zen. Each group has its
+     own shape var defaulting to the global shape; shape prefs override them
+     with `round` (true pills become possible with a large radius). */
+  --wf-shape: superellipse(var(--zen-squircle-value));
+  --wf-corner-shape: var(--wf-shape);
+  --wf-shape-panel: var(--wf-shape);   /* webview, sidebar, titlebar */
+  --wf-shape-window: var(--wf-shape);  /* window ring / background */
+  --wf-shape-tab: var(--wf-shape);     /* tabs, folders, new-tab button */
+  --wf-shape-essen: var(--wf-shape);   /* essentials */
+  --wf-shape-urlbar: var(--wf-shape);  /* floating URL bar */
+
+  /* Zen 1.23+ builds the webview radius from --zen-native-inner-radius.
+     `--zen-webview-border-radius` is Zen's official theme hook: it overrides
+     that value in "squircle space", and .browserSidebarContainer divides it
+     back by --zen-squircle-value. Pre-multiplying keeps --na-user-border-radius
+     an exact *visual* radius in compact and normal mode on every platform. */
+  --zen-webview-border-radius: calc(var(--na-user-border-radius) * var(--zen-squircle-value));
+}
+
+/* Corner roundness preference (percent → multiplier) */
+@media (-moz-pref("wireframe.radius_scale", 0))   { :root { --wf-radius-scale: 0; } }
+@media (-moz-pref("wireframe.radius_scale", 50))  { :root { --wf-radius-scale: 0.5; } }
+@media (-moz-pref("wireframe.radius_scale", 75))  { :root { --wf-radius-scale: 0.75; } }
+@media (-moz-pref("wireframe.radius_scale", 100)) { :root { --wf-radius-scale: 1; } }
+@media (-moz-pref("wireframe.radius_scale", 125)) { :root { --wf-radius-scale: 1.25; } }
+@media (-moz-pref("wireframe.radius_scale", 150)) { :root { --wf-radius-scale: 1.5; } }
+@media (-moz-pref("wireframe.radius_scale", 200)) { :root { --wf-radius-scale: 2; } }
+
+/* Per-element corner roundness (percent → multiplier; 100 = follow global) */
+@media (-moz-pref("wireframe.webview.radius_scale", 0))   { :root { --wf-radius-scale-panel: 0; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 50))  { :root { --wf-radius-scale-panel: 0.5; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 75))  { :root { --wf-radius-scale-panel: 0.75; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 100)) { :root { --wf-radius-scale-panel: 1; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 125)) { :root { --wf-radius-scale-panel: 1.25; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 150)) { :root { --wf-radius-scale-panel: 1.5; } }
+@media (-moz-pref("wireframe.webview.radius_scale", 200)) { :root { --wf-radius-scale-panel: 2; } }
+
+@media (-moz-pref("wireframe.window.radius_scale", 0))   { :root { --wf-radius-scale-window: 0; } }
+@media (-moz-pref("wireframe.window.radius_scale", 50))  { :root { --wf-radius-scale-window: 0.5; } }
+@media (-moz-pref("wireframe.window.radius_scale", 75))  { :root { --wf-radius-scale-window: 0.75; } }
+@media (-moz-pref("wireframe.window.radius_scale", 100)) { :root { --wf-radius-scale-window: 1; } }
+@media (-moz-pref("wireframe.window.radius_scale", 125)) { :root { --wf-radius-scale-window: 1.25; } }
+@media (-moz-pref("wireframe.window.radius_scale", 150)) { :root { --wf-radius-scale-window: 1.5; } }
+@media (-moz-pref("wireframe.window.radius_scale", 200)) { :root { --wf-radius-scale-window: 2; } }
+
+@media (-moz-pref("wireframe.tab.radius_scale", 0))   { :root { --wf-radius-scale-tab: 0; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 50))  { :root { --wf-radius-scale-tab: 0.5; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 75))  { :root { --wf-radius-scale-tab: 0.75; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 100)) { :root { --wf-radius-scale-tab: 1; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 125)) { :root { --wf-radius-scale-tab: 1.25; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 150)) { :root { --wf-radius-scale-tab: 1.5; } }
+@media (-moz-pref("wireframe.tab.radius_scale", 200)) { :root { --wf-radius-scale-tab: 2; } }
+
+@media (-moz-pref("wireframe.essen.radius_scale", 0))   { :root { --wf-radius-scale-essen: 0; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 50))  { :root { --wf-radius-scale-essen: 0.5; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 75))  { :root { --wf-radius-scale-essen: 0.75; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 100)) { :root { --wf-radius-scale-essen: 1; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 125)) { :root { --wf-radius-scale-essen: 1.25; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 150)) { :root { --wf-radius-scale-essen: 1.5; } }
+@media (-moz-pref("wireframe.essen.radius_scale", 200)) { :root { --wf-radius-scale-essen: 2; } }
+
+@media (-moz-pref("wireframe.urlbar.radius_scale", 0))   { :root { --wf-radius-scale-urlbar: 0; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 50))  { :root { --wf-radius-scale-urlbar: 0.5; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 75))  { :root { --wf-radius-scale-urlbar: 0.75; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 100)) { :root { --wf-radius-scale-urlbar: 1; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 125)) { :root { --wf-radius-scale-urlbar: 1.25; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 150)) { :root { --wf-radius-scale-urlbar: 1.5; } }
+@media (-moz-pref("wireframe.urlbar.radius_scale", 200)) { :root { --wf-radius-scale-urlbar: 2; } }
+
+/* Squircle exponent override (x10 codes; 0 = Zen platform default) */
+@media (-moz-pref("wireframe.squircle", 0)) {
+  :root { --zen-squircle-value: 1.3 !important; }
+  @media (-moz-platform: windows) {
+    :root { --zen-squircle-value: 2.3 !important; }
+  }
+}
+@media (-moz-pref("wireframe.squircle", 10)) { :root { --zen-squircle-value: 1 !important; } }
+@media (-moz-pref("wireframe.squircle", 12)) { :root { --zen-squircle-value: 1.2 !important; } }
+@media (-moz-pref("wireframe.squircle", 15)) { :root { --zen-squircle-value: 1.5 !important; } }
+@media (-moz-pref("wireframe.squircle", 20)) { :root { --zen-squircle-value: 2 !important; } }
+@media (-moz-pref("wireframe.squircle", 30)) { :root { --zen-squircle-value: 3 !important; } }
+
+/* Per-element corner shape (squircle = follow global, round = circular,
+   pill = round + oversized radius for guaranteed pills) */
+@media (-moz-pref("wireframe.webview.shape", "round")) { :root { --wf-shape-panel: round; } }
+@media (-moz-pref("wireframe.window.shape", "round")) { :root { --wf-shape-window: round; } }
+@media (-moz-pref("wireframe.tab.shape", "round")) { :root { --wf-shape-tab: round; } }
+@media (-moz-pref("wireframe.tab.shape", "pill")) { :root { --wf-shape-tab: round; } }
+@media (-moz-pref("wireframe.essen.shape", "round")) { :root { --wf-shape-essen: round; } }
+@media (-moz-pref("wireframe.essen.shape", "pill")) { :root { --wf-shape-essen: round; } }
+@media (-moz-pref("wireframe.urlbar.shape", "round")) { :root { --wf-shape-urlbar: round; } }
+
+/* Hand Zen's global squircle geometry back to the theme. Zen 1.23+ applies
+   `corner-shape: superellipse(...)` to every element; this one rule makes the
+   chrome follow --wf-corner-shape instead, so future Zen elements are covered
+   automatically and no per-element chasing is needed. Deliberately low
+   specificity: any corner-shape set later in the theme wins (e.g. tabs use
+   --wf-shape-tab).
+   `.no-squircles` elements keep Zen's behaviour, same as Zen's own rule. */
+*:not(.no-squircles),
+.zen-squircle-before::before,
+.zen-squircle-after::after {
+  corner-shape: var(--wf-corner-shape) !important;
 }
 
 :root {

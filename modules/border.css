@@ -10,7 +10,6 @@
 .browserContainer,
 #appcontent,
 #browser,
-.browserSidebarContainer,
 #zen-tabbox-wrapper,
 #zen-appcontent-wrapper,
 body,
@@ -60,6 +59,7 @@ body > hbox {
         inset: 0;
         border: 2px solid var(--na-color-border);
         border-radius: var(--na-window-border-radius) !important;
+        corner-shape: var(--wf-shape-window) !important;
         pointer-events: none;
         z-index: 9999;
     }
@@ -72,6 +72,7 @@ body > hbox {
       inset: 0;
       pointer-events: none;
       border-radius: var(--na-window-border-radius) !important;
+      corner-shape: var(--wf-shape-window) !important;
       z-index: 9999;
       transform: translateZ(0);
       will-change: box-shadow, opacity;
@@ -129,14 +130,15 @@ body > hbox {
     outline-offset: 0px !important;
 }
 
-/* Ensure all browser elements have squared corners */
-:root #browser,
-:root body * {
-    border-radius: 0;
-}
+/* NOTE: this used to be `:root #browser, :root body * { border-radius: 0 }`.
+   Being user-origin, it beat every Zen radius that wasn't !important and was
+   the reason the webview radius had to be re-added layer by layer. The
+   container list above plus --zen-webview-border-radius now own that, so the
+   blanket reset is intentionally gone. */
 
 :root[sizemode="normal"] #zen-browser-background {
     border-radius: var(--na-window-border-radius) !important;
+    corner-shape: var(--wf-shape-window) !important;
 }
 
 /* window border on spit tabs */
@@ -161,14 +163,9 @@ body > hbox {
     margin: 0 0 !important;
 }
 
-/* content window border radius */
-
-:root:has([zen-compact-mode="true"]):has([zen-single-toolbar="true"]):not(
-        [inDOMFullscreen="true"]
-    )
-    .browserSidebarContainer {
-    border-radius: var(--na-window-border-radius) !important;
-}
+/* content window border radius
+   Zen 1.23 derives .browserSidebarContainer's radius from
+   --zen-webview-border-radius (see modules/variables.css), compact included. */
 
 :root:not([sizemode="normal"]) .browserSidebarContainer {
     border-radius: 0 !important;
@@ -221,6 +218,7 @@ body > hbox {
       inset: 0;
       pointer-events: none;
       border-radius: var(--na-user-border-radius);
+      corner-shape: var(--wf-shape-panel);
       z-index: 9999;
 
       box-shadow:
@@ -326,6 +324,9 @@ body > hbox {
     )
     #zen-tabbox-wrapper {
     border-radius: var(--na-user-border-radius) !important;
+    /* webview shape follows the panel shape var (round by Zen's own design
+       only when the webview shape pref says so — default is squircle) */
+    corner-shape: var(--wf-shape-panel) !important;
 }
 
 :root:not([zen-right-side="true"]):not([zen-compact-mode="true"]):not(
@@ -333,33 +334,14 @@ body > hbox {
     )
     #zen-tabbox-wrapper {
     border-radius: var(--na-user-border-radius) !important;
+    /* webview shape follows the panel shape var (round by Zen's own design
+       only when the webview shape pref says so — default is squircle) */
+    corner-shape: var(--wf-shape-panel) !important;
 }
 
-/* ADD WEBVIEW BORDER RADIUS TO CHILDREN ELEMENTS OF TABBOX */
-:root:not([zen-compact-mode="true"]) {
-/*     @media not (-moz-pref("wireframe.nogaps.enabled")) { */
-        #tabbrowser-tabpanels {
-            border-radius: var(--na-user-border-radius) !important;
-        }
-
-        #tabbrowser-tabpanels > * {
-            border-radius: inherit !important;
-            transition: border-radius 0.18s linear !important;
-        }
-/*     } */
-}
-
-:root:has([zen-compact-mode="true"]):has([sizemode="normal"])
-    ):has(#zen-appcontent-navbar-wrapper[zen-has-hover="false"]) {
-    #zen-tabbox-wrapper {
-        border-radius: var(--na-window-border-radius) !important;
-    }
-
-    #tabbrowser-tabbox,
-    #tabbrowser-tabbox > * {
-        border-radius: var(--na-window-border-radius) !important;
-    }
-}
+/* NOTE: the old "#tabbrowser-tabpanels + children inherit radius" plumbing is
+   gone: .browserSidebarContainer now takes its radius from Zen's hook
+   (--zen-webview-border-radius), so no per-layer overrides are needed. */
 
 :root[inDOMFullscreen="true"] {
     #tabbrowser-tabpanels {
@@ -370,25 +352,37 @@ body > hbox {
 
 /* NO GAPS COMPACT MODE (DEFAULT) */
 
-:root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([customizing]) {
-    /* Credits to CompTechGuy */
-    #zen-appcontent-navbar-wrapper {
-        min-height: 0.1px !important;
-        height: 0.1px !important;
+@media (-moz-pref("wireframe.no-gap.compact-mode")){
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([customizing]) {
+        /* Credits to CompTechGuy */
+        #zen-appcontent-navbar-wrapper {
+            min-height: 0.1px !important;
+            height: 0.1px !important;
+        }
+
+        #zen-appcontent-navbar-wrapper[zen-has-hover="true"] {
+            height: 34px !important;
+        }
+
+        --zen-element-separation: 0px !important;
+
+        /* With no gaps the webview hugs the window, so follow the window
+           radius instead of the webview pref. */
+        --zen-webview-border-radius: calc(
+            var(--na-window-border-radius) * var(--zen-squircle-value)
+        ) !important;
     }
+}
 
-    #zen-appcontent-navbar-wrapper[zen-has-hover="true"] {
-        height: 34px !important;
-    }
-
-    --zen-element-separation: 0px !important;
-
+/* fix for webview border radius */
+/* :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not([customizing]) {
     #zen-tabbox-wrapper,
     #tabbrowser-tabbox,
     #tabbrowser-tabbox > * {
-        border-radius: var(--na-window-border-radius) !important;
+        border-radius: var(--na-user-border-radius) !important;
+        corner-shape: var(--wf-shape-panel) !important;
     }
-}
+} */
 
 /* FIX : REMOVE NAVBAR CONTAINER WHEN EMPTY */
 :root[zen-single-toolbar="true"][zen-compact-mode="true"]:not(
@@ -443,25 +437,27 @@ body > hbox {
     }
 }
 
-:root:not([zen-single-toolbar="true"])[zen-compact-mode="true"][sizemode="normal"] #browser,
-:root:not([zen-single-toolbar="true"])[zen-compact-mode="true"][sizemode="normal"] #main-window{
-  overflow: hidden !important;
-  clip-path: inset(0 round var(--na-window-border-radius));
-}
+@media (-moz-pref("wireframe.no-gap.compact-mode")){
+    :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"][sizemode="normal"] #browser,
+    :root:not([zen-single-toolbar="true"])[zen-compact-mode="true"][sizemode="normal"] #main-window{
+      overflow: hidden !important;
+      clip-path: inset(0 round var(--na-window-border-radius));
+    }
 
-/* fix for corner bleeding in single toolbar compact mode */
-:root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #browser,
-:root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #main-window {
-    overflow: hidden !important;
-    clip-path: inset(0 round var(--na-window-border-radius));
-}
+    /* fix for corner bleeding in single toolbar compact mode */
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #browser,
+    :root[zen-single-toolbar="true"][zen-compact-mode="true"][sizemode="normal"] #main-window {
+        overflow: hidden !important;
+        clip-path: inset(0 round var(--na-window-border-radius));
+    }
 
-/* fix for rounded corners in maximised compact mode */
-:root:not([sizemode="normal"])[zen-compact-mode="true"]:not([customizing]){
-    #zen-tabbox-wrapper,
-    #tabbrowser-tabbox,
-    #tabbrowser-tabbox > * {
-        border-radius: 0 !important;
+    /* fix for rounded corners in maximised compact mode */
+    :root:not([sizemode="normal"])[zen-compact-mode="true"]:not([customizing]){
+        #zen-tabbox-wrapper,
+        #tabbrowser-tabbox,
+        #tabbrowser-tabbox > * {
+            border-radius: 0 !important;
+        }
     }
 }
 
@@ -482,11 +478,15 @@ body > hbox {
 
 /* macos style border for essentials */
 @media (-moz-pref("wireframe.essen.borders", "macos-all")){
-  .tabbrowser-tab:has([zen-essential]) .tab-background::after{
+  /* Zen 1.23: [zen-essential] is on the tab itself, and .tab-background now
+     clips its own shadows -> draw the rim on .tab-stack instead. */
+  .tabbrowser-tab[zen-essential] .tab-stack::after{
     position: absolute;
     inset: 2px;
     content: "";
+    pointer-events: none;
     border-radius: var(--na-essen-border-radius) !important;
+    corner-shape: var(--wf-shape-essen) !important;
     box-shadow: 
       /* --- corner mask: prevents edge halo bleeding --- */ 
       inset 0 0 0 1px rgba(255,255,255,0.22), 
@@ -502,11 +502,13 @@ body > hbox {
 }
 
 @media (-moz-pref("wireframe.essen.borders", "macos-active")){
-  .tabbrowser-tab[selected]:has([zen-essential]) .tab-background::after{
+  .tabbrowser-tab[zen-essential]:is([selected], [visuallyselected]) .tab-stack::after{
     position: absolute;
     inset: 2px;
     content: "";
+    pointer-events: none;
     border-radius: var(--na-essen-border-radius) !important;
+    corner-shape: var(--wf-shape-essen) !important;
     box-shadow: 
       /* --- corner mask: prevents edge halo bleeding --- */ 
       inset 0 0 0 1px rgba(255,255,255,0.22), 
@@ -525,10 +527,11 @@ body > hbox {
 @media (-moz-pref("wireframe.tab.borders", "macos-all")){
   .tabbrowser-tab:not([zen-essential]) .tab-stack::after{
     position: absolute;
-    z-index: -1 !important;
     inset: 2px;
     content: "";
+    pointer-events: none;
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     box-shadow: 
       /* --- corner mask: prevents edge halo bleeding --- */ 
       inset 0 0 0 1px rgba(255,255,255,0.22), 
@@ -544,12 +547,13 @@ body > hbox {
 }
 
 @media (-moz-pref("wireframe.tab.borders", "macos-active")){
-  .tabbrowser-tab[selected]:not([zen-essential]) .tab-stack::after{
+  .tabbrowser-tab:not([zen-essential]):is([selected], [visuallyselected]) .tab-stack::after{
     position: absolute;
-    z-index: -1 !important;
     inset: 2px;
     content: "";
+    pointer-events: none;
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     box-shadow: 
       /* --- corner mask: prevents edge halo bleeding --- */ 
       inset 0 0 0 1px rgba(255,255,255,0.22), 
@@ -564,85 +568,26 @@ body > hbox {
   }
 }
 
-/* === Webview Border Radius Pref === */
-@media (-moz-pref("wireframe.webview.border_radius", 0)) {
-    :root {
-        --na-user-border-radius: 0px;
-    }
+/* Pill rims follow the pill background (placed after the rim rules so the
+   oversized radius wins the specificity ties) */
+@media (-moz-pref("wireframe.essen.shape", "pill")) {
+  .tabbrowser-tab[zen-essential] .tab-stack::after,
+  .tabbrowser-tab[zen-essential]:is([selected], [visuallyselected]) .tab-stack::after {
+    border-radius: 999px !important;
+  }
 }
 
-@media (-moz-pref("wireframe.webview.border_radius", 4)) {
-    :root {
-        --na-user-border-radius: 4px;
-    }
+@media (-moz-pref("wireframe.tab.shape", "pill")) {
+  .tabbrowser-tab:not([zen-essential]) .tab-stack::after,
+  .tabbrowser-tab:not([zen-essential]):is([selected], [visuallyselected]) .tab-stack::after {
+    border-radius: 999px !important;
+  }
 }
 
-@media (-moz-pref("wireframe.webview.border_radius", 8)) {
-    :root {
-        --na-user-border-radius: 8px;
-    }
-}
-
-@media (-moz-pref("wireframe.webview.border_radius", 12)) {
-    :root {
-        --na-user-border-radius: 12px;
-    }
-}
-
-@media (-moz-pref("wireframe.webview.border_radius", 16)) {
-    :root {
-        --na-user-border-radius: 16px;
-    }
-}
-
-@media (-moz-pref("wireframe.webview.border_radius", 20)) {
-    :root {
-        --na-user-border-radius: 20px;
-    }
-}
-
-/* === Window border radius pref === */
-@media (-moz-pref("wireframe.window.border_radius", 0)) {
-    :root {
-        --na-window-border-radius: 0px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 4)) {
-    :root {
-        --na-window-border-radius: 4px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 8)) {
-    :root {
-        --na-window-border-radius: 8px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 12)) {
-    :root {
-        --na-window-border-radius: 12px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 16)) {
-    :root {
-        --na-window-border-radius: 16px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 20)) {
-    :root {
-        --na-window-border-radius: 20px;
-    }
-}
-
-@media (-moz-pref("wireframe.window.border_radius", 24)) {
-    :root {
-        --na-window-border-radius: 24px;
-    }
-}
+/* === Webview / Window border radius ===
+   Derived in variables.css from --zen-border-radius × --wf-radius-scale, so
+   they follow Zen's own radius preference and the roundness pref dynamically.
+   (Old per-element px prefs were removed in the 1.23 rework.) */
 
 /* === NO GAPS === */
 

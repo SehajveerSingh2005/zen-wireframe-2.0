@@ -4,10 +4,12 @@
 
 #titlebar:before{
   border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-shape-panel) !important;
 }
 
 #titlebar{
   border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-shape-panel) !important;
 }
 
 .zen-toolbar-background {
@@ -18,6 +20,7 @@
 .zen-toolbar-background {
   &, &::before, &::after {
     border-radius: var(--na-user-border-radius) !important;
+    corner-shape: var(--wf-shape-panel) !important;
   }
 }
 
@@ -396,6 +399,7 @@
 
 #tabs-newtab-button{
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 /* === Changed new tab label === */
@@ -548,7 +552,10 @@
   }
 } */
 
-.tab-background { border-radius: var(--na-user-border-radius) !important; }
+.tab-background {
+  border-radius: var(--na-user-border-radius) !important;
+  corner-shape: var(--wf-corner-shape) !important;
+}
 
 .zen-essentials-container > .tabbrowser-tab, #zen-welcome-initial-essentials-browser-sidebar-essentials .tabbrowser-tab {
   @media -moz-pref("zen.theme.essentials-favicon-bg") {
@@ -593,6 +600,7 @@
 /* Border radius of tabs */
 .tabbrowser-tab .tab-background:not([zen-essential]){
   border-radius: var(--na-tab-border-radius) !important;
+  corner-shape: var(--wf-shape-tab) !important;
 }
 
 /* Border radius for folder */
@@ -605,9 +613,23 @@ zen-folder {
 }
 
 
-/* Border radius of essentials */
-.tabbrowser-tab:has([zen-essential]) .tab-background{
+/* Border radius of essentials (Zen 1.23: [zen-essential] sits on the tab itself) */
+.tabbrowser-tab[zen-essential] .tab-background{
   border-radius: var(--na-essen-border-radius) !important;
+  corner-shape: var(--wf-shape-essen) !important;
+}
+
+/* Pill shapes (round + oversized radius = true pill regardless of size) */
+@media (-moz-pref("wireframe.tab.shape", "pill")) {
+  .tabbrowser-tab .tab-background:not([zen-essential]) {
+    border-radius: 999px !important;
+  }
+}
+
+@media (-moz-pref("wireframe.essen.shape", "pill")) {
+  .tabbrowser-tab[zen-essential] .tab-background {
+    border-radius: 999px !important;
+  }
 }
 
 /* Essentials Spacing */
@@ -639,9 +661,14 @@ zen-folder {
   justify-content: flex-start !important;
 }
 
-#zen-sidebar-splitter {
-  /* background: var(--na-color-bg) !important; */
-  opacity: 1 !important;
+/* Zen 1.23+ redesigned the splitter: it is now a floating accent bar that is
+   hidden by default (opacity: 0) and fades in on hover/resize.
+   Forcing opacity: 1 here made it a permanent vertical line on the sidebar edge. */
+@media (-moz-pref("wireframe.nogaps.border.enabled")) {
+  #zen-sidebar-splitter {
+    opacity: 1 !important;
+    background: transparent !important;
+  }
 }
 
 /* Pref to disable navigation buttons */
@@ -694,11 +721,13 @@ zen-folder {
 @media (-moz-pref("wireframe.folders","border")){
   zen-folder {
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     position: relative !important; /* needed for the outline pseudo */
   }
 
   zen-folder:not([collapsed]){
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     transition: all 0.18s ease !important;
     outline: 2px solid var(--zen-toolbar-element-bg) !important;
     outline-offset: -2px !important;
@@ -708,107 +737,20 @@ zen-folder {
 @media (-moz-pref("wireframe.folders","background")){
   zen-folder {
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     position: relative !important; /* needed for the outline pseudo */
   }
 
   zen-folder:not([collapsed]){
     background: var(--zen-toolbar-element-bg) !important;
     border-radius: var(--na-tab-border-radius) !important;
+    corner-shape: var(--wf-shape-tab) !important;
     transition: all 0.18s ease !important;
   }
 }
 
 /* ======= MEDIA QUERIES FOR PREFERENCES ======== */
 
-/* Pref for tab and folder border radius */
-@media (-moz-pref("wireframe.tab.border_radius",0)){
-  :root{
-    --na-tab-border-radius: 0px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",4)){
-  :root{
-    --na-tab-border-radius: 4px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",8)){
-  :root{
-    --na-tab-border-radius: 8px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",12)){
-  :root{
-    --na-tab-border-radius: 12px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",16)){
-  :root{
-    --na-tab-border-radius: 16px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",20)){
-  :root{
-    --na-tab-border-radius: 20px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.tab.border_radius",24)){
-  :root{
-    --na-tab-border-radius: 24px !important;
-  }
-}
-
-/* Pref for essentials border radius */
-
-@media (-moz-pref("wireframe.essentials.border_radius",0)){
-  :root{
-    --na-essen-border-radius: 0px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",4)){
-  :root{
-    --na-essen-border-radius: 4px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",8)){
-  :root{
-    --na-essen-border-radius: 8px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",12)){
-  :root{
-    --na-essen-border-radius: 12px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",16)){
-  :root{
-    --na-essen-border-radius: 16px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",20)){
-  :root{
-    --na-essen-border-radius: 20px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",24)){
-  :root{
-    --na-essen-border-radius: 24px !important;
-  }
-}
-
-@media (-moz-pref("wireframe.essentials.border_radius",50)){
-  :root{
-    --na-essen-border-radius: 100px !important;
-  }
-}
+/* Tab / essentials radius is derived in variables.css from
+   --zen-border-radius × --wf-radius-scale (Zen-like dynamic radius system).
+   (Old per-element px prefs were removed in the 1.23 rework.) */

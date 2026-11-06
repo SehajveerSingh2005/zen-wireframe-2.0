@@ -641,7 +641,7 @@ zen-folder {
 
 #zen-sidebar-splitter {
   /* background: var(--na-color-bg) !important; */
-  opacity: 1 !important;
+  opacity: 0 !important;
 }
 
 /* Pref to disable navigation buttons */

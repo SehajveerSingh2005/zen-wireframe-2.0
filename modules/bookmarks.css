@@ -25,25 +25,25 @@
 }
 
 /* bookmark and history expand on right side */
-:root:not([zen-compact-mode="true"]):not([zen-right-side="true"]) #tabbrowser-tabbox>vbox {
+:root:not([zen-compact-mode="true"]):not([zen-right-side="true"]) #tabbrowser-tabbox>vbox:not(:where(#zen-split-view-fake-browser)) {
   animation: slideFromRight var(--na-anim-duration) ease !important;
   right: 24px;
 }
 
 /* bookmark and history expand on left side */
-:root:not([zen-compact-mode="true"])[zen-right-side="true"] #tabbrowser-tabbox>vbox {
+:root:not([zen-compact-mode="true"])[zen-right-side="true"] #tabbrowser-tabbox>vbox:not(:where(#zen-split-view-fake-browser)) {
   animation: slideFromLeft var(--na-anim-duration) ease !important;
   left: 20px;
 }
 
 /* bookmark and history compact mode on right side */
-:root:not([zen-right-side="true"]) #tabbrowser-tabbox>vbox {
+:root:not([zen-right-side="true"]) #tabbrowser-tabbox>vbox:not(:where(#zen-split-view-fake-browser)) {
   animation: slideFromRight var(--na-anim-duration) ease !important;
   right: 18px;
 }
 
 /* bookmark and history compact mode on left side */
-:root[zen-right-side="true"] #tabbrowser-tabbox>vbox {
+:root[zen-right-side="true"] #tabbrowser-tabbox>vbox:not(:where(#zen-split-view-fake-browser)) {
   animation: slideFromLeft var(--na-anim-duration) ease !important;
   left: 10px;
 }
